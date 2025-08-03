@@ -1,0 +1,10 @@
+.siteLogo {
+  display: block;
+}
+
+.image {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
