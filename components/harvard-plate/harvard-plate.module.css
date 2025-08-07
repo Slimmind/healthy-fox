@@ -1,0 +1,34 @@
+.plate {
+  display: grid;
+  grid-template-areas:
+    "sidebar-left switcher sidebar-right"
+    "sidebar-left roundel sidebar-right"
+    "sidebar-left measurement sidebar-right";
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  height: calc(100dvh - 100px);
+}
+
+.plate__sidebar {
+  background-color: rgba(0, 100, 100, .2);
+}
+
+.plate__sidebar--left {
+  grid-area: sidebar-left;
+}
+
+.plate__sidebar--right {
+  grid-area: sidebar-right;
+}
+
+.plate__switcher {
+  grid-area: switcher;
+}
+
+.plate__roundel {
+  background-color: rgba(0, 0, 100, .2);
+}
+
+.plate__measurement {
+  grid-area: measurement;
+}
