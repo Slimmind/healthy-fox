@@ -6,6 +6,7 @@
   --color-main: rgb(var(--color-main-value));
   --color-main-transparent: rgba(var(--color-main-value), var(--transparency));
   --color-white: #fff;
+  --color-gray-light: #efefef;
 }
 
 @media (prefers-color-scheme: light) {
