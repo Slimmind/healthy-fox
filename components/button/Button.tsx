@@ -12,16 +12,10 @@ type CommonProps = {
 } & PropsWithChildren;
 
 type ButtonProps = ComponentPropsWithoutRef<'button'> &
-<<<<<<< HEAD
-  CommonProps & {
-    href?: never;
-  };
-=======
 	CommonProps & {
 		href?: never;
 		onClick?: MouseEventHandler<HTMLButtonElement> | (() => void);
 	};
->>>>>>> 480b808 (Measurement component)
 
 type AnchorProps = ComponentPropsWithoutRef<'a'> &
   CommonProps & {
