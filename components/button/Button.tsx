@@ -7,6 +7,7 @@ import getMod from '../../utils/get-mod';
 import styles from './button.module.css';
 
 type CommonProps = {
+  mods?: string;
   mod?: string | string[];
 } & PropsWithChildren;
 
