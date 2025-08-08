@@ -1,72 +1,95 @@
 'use client';
 
-import { MeasurementDataType } from '@/utils/constants';
+import { MeasurementDataType } from '@/types/measurement';
+
 import styles from './measurement.module.css';
 
 type MeasurementProps = {
-	userValues: MeasurementDataType;
-	chosenValues: MeasurementDataType;
+  userValues: MeasurementDataType;
+  chosenValues: MeasurementDataType;
 };
 
 export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
-	const getChosenColumnHeight = (key: keyof MeasurementDataType): string => {
-		const userValue = userValues[key];
-		const chosenValue = chosenValues[key];
+  const getChosenHeight = (key: keyof MeasurementDataType): string => {
+    const user = userValues[key];
+    const chosen = chosenValues[key];
 
-		const percentage =
-			chosenValue > 0
-				? Math.max(5, Math.min((chosenValue / userValue) * 95, 95))
-				: 0;
+    const getPercentage = (): number => {
+      if (user <= chosen) {
+        return 100;
+      }
 
-		return chosenValue ? `${percentage}%` : '';
-	};
+      return (chosen / user) * 100;
+    };
 
-	const getUserColumnHeight = (key: keyof MeasurementDataType): string => {
-		const userValue = userValues[key];
-		const chosenValue = chosenValues[key];
-		const percentage =
-			chosenValue > userValue
-				? Math.max(5, Math.min((userValue / chosenValue) * 95, 95))
-				: 0;
+    return `${Math.max(0, Math.min(getPercentage(), 100))}%`;
+  };
 
-		return !!percentage ? `${percentage}%` : '';
-	};
+  const getUserHeight = (key: keyof MeasurementDataType): string => {
+    const user = userValues[key];
+    const chosen = chosenValues[key];
 
-	return (
-		<div className={styles.measurement}>
-			<ul className={styles.graphTitles}>
-				{Object.keys(userValues).map((title: string) => (
-					<li key={title} className={styles.graphTitlesColumn}>
-						{title}
-					</li>
-				))}
-			</ul>
-			<ul className={styles.userGraph}>
-				{Object.entries(userValues).map(([key, value]) => (
-					<li
-						key={key}
-						className={styles.userGraphColumn}
-						style={{
-							height: getUserColumnHeight(key as keyof MeasurementDataType),
-						}}
-					>
-						{value}
-					</li>
-				))}
-			</ul>
-			<ul className={styles.chosenGraph}>
-				{Object.entries(chosenValues).map(([key, value]) => (
-					<li
-						key={key}
-						className={styles.chosenGraphColumn}
-						style={{
-							height: getChosenColumnHeight(key as keyof MeasurementDataType),
-						}}
-					>
-						<b className={styles.choseGraphColumnValue}>{value || ''}</b>
-					</li>
-				))}
-			</ul>
-		</div>
-	);
+    const getPercentage = (): number => {
+      if (chosen >= user) {
+        return (user / chosen) * 100;
+      }
+      return 100;
+    };
+
+    return `${Math.max(0, Math.min(getPercentage(), 100))}%`;
+  };
+
+  const shouldHighlightRed = (key: keyof MeasurementDataType): boolean => {
+    return chosenValues[key] > userValues[key];
+  };
+
+  return (
+    <div className={styles.measurement}>
+      <ul className={styles.graphTitles}>
+        {Object.keys(userValues).map((title) => (
+          <li key={title} className={styles.graphTitlesColumn}>
+            {title}
+          </li>
+        ))}
+      </ul>
+
+      <ul className={styles.userGraph}>
+        {Object.entries(userValues).map(([key, value]) => {
+          const height = getUserHeight(key as keyof MeasurementDataType);
+          const isOver = shouldHighlightRed(key as keyof MeasurementDataType);
+          console.log('OVVER: ', isOver);
+          return (
+            <li
+              key={key}
+              className={`${styles.userGraphColumn} ${
+                isOver ? styles.userGraphColumnOver : ''
+              }`}
+              style={{ height: height }}
+            >
+              {value}
+            </li>
+          );
+        })}
+      </ul>
+
+      <ul className={styles.chosenGraph}>
+        {Object.entries(chosenValues).map(([key, value]) => {
+          const height = getChosenHeight(key as keyof MeasurementDataType);
+          const isOver = shouldHighlightRed(key as keyof MeasurementDataType);
+
+          return (
+            <li
+              key={key}
+              className={`${styles.chosenGraphColumn} ${
+                isOver ? styles.chosenGraphColumnOver : ''
+              }`}
+              style={{ height: height }}
+            >
+              <b className={styles.choseGraphColumnValue}>{value || ''}</b>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };

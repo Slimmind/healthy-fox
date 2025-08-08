@@ -12,6 +12,7 @@
   --color-yellow: rgb(var(--color-yellow-value));
   --color-main-transparent: rgba(var(--color-main-value), var(--transparency));
   --color-blue-transparent: rgba(var(--color-blue-value), var(--transparency));
+  --color-red-transparent: rgba(var(--color-red-value), var(--transparency));
   --color-blue-light: #CCCCE1;
   --color-white: #fff;
   --color-gray: #cdcdcd;
