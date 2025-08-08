@@ -1,7 +1,7 @@
 .block {
   margin-bottom: 10px;
   padding: 10px;
-  background-color: var(--accent-color);
+  background-color: var(--color-main);
   border-radius: var(--radius-small);
   list-style-position: inside;
   backdrop-filter: var(--blur);

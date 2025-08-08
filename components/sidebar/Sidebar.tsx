@@ -11,14 +11,15 @@ type SidebarProps = {
 } & PropsWithChildren;
 
 export const Sidebar = ({ title, mods, children }: SidebarProps) => {
-  return (
-    <aside className={clsx(styles.sidebar, getMod(styles, 'sidebar', mods))}>
-      {title && (
-        <header className={styles.sidebar__header}>
-          <h3 className={styles.sidebar__title}>{title}</h3>
-        </header>
-      )}
-      <div className={styles.sidebar__body}>{children}</div>
-    </aside>
-  );
+	const classes = clsx(styles.sidebar, getMod(styles, 'sidebar', mods));
+	return (
+		<aside className={classes}>
+			{title && (
+				<header className={styles.sidebar__header}>
+					<h3 className={styles.sidebar__title}>{title}</h3>
+				</header>
+			)}
+			<div className={styles.sidebar__body}>{children}</div>
+		</aside>
+	);
 };
