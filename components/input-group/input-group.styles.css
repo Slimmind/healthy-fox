@@ -2,7 +2,7 @@
   display: inline-block;
   vertical-align: top;
   padding: 4px 14px;
-  background-color: var(--accent-color);
+  background-color: var(--color-main);
   border-radius: var(--radius-small) var(--radius-small) 0 0;
   color: var(--color-white);
   font-size: 14px;

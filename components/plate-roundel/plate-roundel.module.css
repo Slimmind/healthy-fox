@@ -1,0 +1,54 @@
+.plateRoundel {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  max-height: 60vh;
+  aspect-ratio: 1/1;
+  margin-inline: auto;
+  background-color: var(--color-blue-light);
+  border: 10px solid var(--color-blue-light);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.plateSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: calc(50% - 5px);
+}
+
+.plateVegetables,
+.plateFruits,
+.plateProteins,
+.plateCarbohydrates {
+  border-radius: var(--radius-main);
+  transition: opacity .3s;
+}
+
+.plateVegetables:hover,
+.plateFruits:hover,
+.plateProteins:hover,
+.plateCarbohydrates:hover {
+  opacity: .8;
+}
+
+.plateVegetables {
+  height: 65%;
+  background-color: var(--color-green);
+}
+
+.plateFruits {
+  height: 35%;
+  background-color: var(--color-main);
+}
+
+.plateProteins {
+  height: calc(50% - 5px);
+  background-color: var(--color-red);
+}
+
+.plateCarbohydrates {
+  height: calc(50% - 5px);
+  background-color: var(--color-yellow);
+}

@@ -199,7 +199,7 @@ label + .input__wrap textarea {
   right: 0;
   width: 30px;
   height: 100%;
-  background-color: var(--accent-color);
+  background-color: var(--color-main);
   border-radius: 0 var(--radius-small) var(--radius-small) 0;
   box-shadow: none;
 }
