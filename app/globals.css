@@ -1,10 +1,13 @@
 :root {
+  --color-main-value: 102, 51, 153;
+  --color-blue-value: 0, 100, 200;
+  --color-main: rgb(var(--color-main-value));
+  --color-blue: rgb(var(--color-blue-value));
+  --color-main-transparent: rgba(var(--color-main-value), var(--transparency));
+  --color-blue-transparent: rgba(var(--color-blue-value), var(--transparency));
   --background: #ffffff;
   --foreground: #171717;
   --transparency: 0.2;
-  --color-main-value: 102, 51, 153;
-  --color-main: rgb(var(--color-main-value));
-  --color-main-transparent: rgba(var(--color-main-value), var(--transparency));
   --color-white: #fff;
   --color-gray: #cdcdcd;
   --color-gray-light: #efefef;

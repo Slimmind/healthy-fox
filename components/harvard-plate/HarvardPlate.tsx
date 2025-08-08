@@ -4,17 +4,31 @@ import { useEffect, useState } from 'react';
 import { MealType, MeasurementDataType } from '@/utils/constants';
 import Button from '../button';
 import Sidebar from '../sidebar';
+import Measurement from '../measurement';
 import styles from './harvard-plate.module.css';
 
 import meals from '@/meals.json';
+
+const initialMealSummary = {
+	calories: 0,
+	proteins: 0,
+	fats: 0,
+	carbohydrates: 0,
+};
+
+const mockUserData = {
+	calories: 2000,
+	proteins: 240,
+	fats: 180,
+	carbohydrates: 100,
+};
 
 export const HarvardPlate = () => {
 	const [mealsList, setMealsList] = useState<MealType[]>([]);
 	const [currenProduct, setCurrenProduct] = useState<MealType | null>(null);
 	const [chosenProducts, setChosenProducts] = useState<MealType[]>([]);
-	const [mealSummary, setMealSummary] = useState<MeasurementDataType | null>(
-		null
-	);
+	const [mealSummary, setMealSummary] =
+		useState<MeasurementDataType>(initialMealSummary);
 
 	const filterMeals = (mealTime: string): void => {
 		const filteredMeals = meals.filter(
@@ -31,22 +45,19 @@ export const HarvardPlate = () => {
 	};
 
 	useEffect(() => {
-		const totalCalories = chosenProducts.reduce(
-			(acc, product) => acc + product.calories,
-			0
+		const totalCalories = Math.round(
+			chosenProducts.reduce((acc, product) => acc + product.calories, 0)
 		);
-		const totalProteins = chosenProducts.reduce(
-			(acc, product) => acc + product.proteins,
-			0
+		const totalProteins = Math.round(
+			chosenProducts.reduce((acc, product) => acc + product.proteins, 0)
 		);
-		const totalFats = chosenProducts.reduce(
-			(acc, product) => acc + product.fats,
-			0
+		const totalFats = Math.round(
+			chosenProducts.reduce((acc, product) => acc + product.fats, 0)
 		);
-		const totalCarbohydrates = chosenProducts.reduce(
-			(acc, product) => acc + product.carbohydrates,
-			0
+		const totalCarbohydrates = Math.round(
+			chosenProducts.reduce((acc, product) => acc + product.carbohydrates, 0)
 		);
+
 		setMealSummary({
 			calories: totalCalories,
 			proteins: totalProteins,
@@ -87,7 +98,8 @@ export const HarvardPlate = () => {
 				<Button onClick={() => filterMeals('drink')}>Напиток</Button>
 			</nav>
 			<div className={styles.plate__roundel}>Plate</div>
-			<div className={styles.measurement}>
+			<Measurement userValues={mockUserData} chosenValues={mealSummary} />
+			{/* <div className={styles.measurement}>
 				<p>
 					<b>Калории:</b> {mealSummary?.calories} <em>ккал.</em>
 				</p>
@@ -100,7 +112,7 @@ export const HarvardPlate = () => {
 				<p>
 					<b>Углеводы:</b> {mealSummary?.carbohydrates} <em>г.</em>
 				</p>
-			</div>
+			</div> */}
 			<Sidebar title='Характеристики' mods='right'>
 				{currenProduct && (
 					<>
