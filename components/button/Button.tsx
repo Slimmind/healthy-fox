@@ -1,9 +1,10 @@
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
-import getMod from '../../utils/get-mod';
-import './button.styles.css';
+import { getMod } from '../../utils/get-mod';
+import styles from './btn.module.css';
+import clsx from 'clsx';
 
 type CommonProps = {
-	mod?: string;
+	mods?: string;
 	activeClass?: string;
 } & PropsWithChildren;
 
@@ -22,8 +23,8 @@ type Props = ButtonProps | AnchorProps;
 const isAnchorProps = (props: Props): props is AnchorProps => 'href' in props;
 
 export const Button = (props: Props) => {
-	const { mod = 'primary', activeClass, children, ...restProps } = props;
-	const classes = `btn ${getMod('btn', mod)} ${activeClass ? activeClass : ''}`;
+	const { mods = 'primary', activeClass, children, ...restProps } = props;
+	const classes = clsx(styles.btn, getMod(styles, 'btn', mods));
 
 	if (isAnchorProps(props)) {
 		const { href, ...anchorProps } = restProps as AnchorProps;

@@ -9,8 +9,9 @@ type SidebarProps = {
 } & PropsWithChildren;
 
 export const Sidebar = ({ title, mods, children }: SidebarProps) => {
+	const classes = clsx(styles.sidebar, getMod(styles, 'sidebar', mods));
 	return (
-		<aside className={clsx(styles.sidebar, getMod(styles, 'sidebar', mods))}>
+		<aside className={classes}>
 			{title && (
 				<header className={styles.sidebar__header}>
 					<h3 className={styles.sidebar__title}>{title}</h3>

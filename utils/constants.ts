@@ -8,6 +8,31 @@ export const appColors = [
 	'150, 150, 150',
 ];
 
+export type MeasurementDataType = {
+	calories: number;
+	proteins: number;
+	fats: number;
+	carbohydrates: number;
+};
+
+export type MealType = {
+	id: string;
+	name: string;
+	mealTimes: string[];
+	preferredMealTimes: string[];
+	calories: number;
+	proteins: number;
+	fats: number;
+	carbohydrates: number;
+	image: string;
+	description: string;
+	unit: string;
+	type: string;
+	allergens: string[];
+	storage: string;
+	category: string;
+};
+
 export type ColorOptionType = {
 	isActive: boolean;
 	color: string;

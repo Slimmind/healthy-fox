@@ -6,7 +6,10 @@
   --color-main: rgb(var(--color-main-value));
   --color-main-transparent: rgba(var(--color-main-value), var(--transparency));
   --color-white: #fff;
+  --color-gray: #cdcdcd;
   --color-gray-light: #efefef;
+  --radius-main: 10px;
+  --main-border-width: 2px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -58,7 +61,7 @@ img {
     transparent 1px
   );
   background-size: 20px 20px;
-  color: var(--accent-color);
+  color: var(--color-main);
 }
 
 .layout--authorized::before {
@@ -71,6 +74,10 @@ img {
 	background: url("/src/assets/bg.png") no-repeat center center / 40dvh auto;
 	opacity: 0.2;
 	pointer-events: none;
+}
+
+ul {
+  list-style: none;
 }
 
 @media (prefers-color-scheme: dark) {
