@@ -5,8 +5,10 @@
     "sidebar-left roundel sidebar-right"
     "sidebar-left measurement sidebar-right";
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: auto 2fr 1fr;
   height: calc(100dvh - 100px);
+  gap: 10px;
+  padding: 10px;
 }
 
 .plate__sidebar {
@@ -23,12 +25,69 @@
 
 .plate__switcher {
   grid-area: switcher;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.plate__roundel {
-  background-color: rgba(0, 0, 100, .2);
+.meal {
+  padding: 10px;
+  background-color: var(--color-gray-light);
+  border-radius: var(--radius-main);
+  cursor: pointer;
+  transition: background-color .3s;
 }
 
-.plate__measurement {
-  grid-area: measurement;
+.meal:hover,
+.mar:focus-visible {
+  background-color: var(--color-gray);
+}
+
+.mealsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: calc(50% - 10px);
+  max-height: calc(50% - 10px);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-gray-light);
+  overflow-y: auto;
+}
+
+.myChoice {
+  height: calc(50% - 10px);
+  max-height: calc(50% - 10px);
+  background-color: var(--color-gray-light);
+  border-radius: var(--radius-main);
+}
+
+.myChoiceTitle {
+  padding: 10px;
+  text-align: center;
+}
+
+.chosenProductsList {
+
+}
+
+.chosenProduct {
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--color-gray);
+  font-size: 12px;
+}
+
+.characteristic {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-gray-light);
+  font-size: 12px;
+}
+
+.characteristicTitle {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: var(--color-gray-light);
+  border: 0;
+  border-radius: var(--radius-main);
 }

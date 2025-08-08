@@ -1,17 +1,27 @@
-import { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
-
-import getMod from '../../utils/get-mod';
-import './button.styles.css';
+import {
+	ComponentPropsWithoutRef,
+	MouseEventHandler,
+	PropsWithChildren,
+} from 'react';
+import { getMod } from '../../utils/get-mod';
+import styles from './btn.module.css';
+import clsx from 'clsx';
 
 type CommonProps = {
-  mod?: string;
-  activeClass?: string;
+	mods?: string;
 } & PropsWithChildren;
 
 type ButtonProps = ComponentPropsWithoutRef<'button'> &
+<<<<<<< HEAD
   CommonProps & {
     href?: never;
   };
+=======
+	CommonProps & {
+		href?: never;
+		onClick?: MouseEventHandler<HTMLButtonElement> | (() => void);
+	};
+>>>>>>> 480b808 (Measurement component)
 
 type AnchorProps = ComponentPropsWithoutRef<'a'> &
   CommonProps & {
@@ -23,8 +33,8 @@ type Props = ButtonProps | AnchorProps;
 const isAnchorProps = (props: Props): props is AnchorProps => 'href' in props;
 
 export const Button = (props: Props) => {
-  const { mod = 'primary', activeClass, children, ...restProps } = props;
-  const classes = `btn ${getMod('btn', mod)} ${activeClass ? activeClass : ''}`;
+	const { mods = 'primary', children, ...restProps } = props;
+	const classes = clsx(styles.btn, getMod(styles, 'btn', mods));
 
   if (isAnchorProps(props)) {
     const { href, ...anchorProps } = restProps as AnchorProps;
