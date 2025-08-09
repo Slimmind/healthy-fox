@@ -42,6 +42,22 @@ export default [
       'no-console': ['warn', { allow: ['error'] }],
       'react/jsx-props-no-spreading': 'off',
       'import/prefer-default-export': 'off', // Airbnb prefers default exports, but this is optional
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+          pathGroups: [
+            {
+              pattern: '@/**',
+              group: 'internal',
+              position: 'after',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
+        },
+      ],
     },
   },
   {

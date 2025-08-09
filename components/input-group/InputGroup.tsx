@@ -1,5 +1,5 @@
-import { lazy, PropsWithChildren } from 'react';
 import clsx from 'clsx';
+import { lazy, PropsWithChildren } from 'react';
 import './input-group.styles.css';
 
 const WarningIcon = lazy(() => import('../../icons/warning-icon'));

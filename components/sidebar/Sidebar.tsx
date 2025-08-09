@@ -1,7 +1,10 @@
-import { PropsWithChildren } from 'react';
 import clsx from 'clsx';
-import styles from './sidebar.module.css';
+import { PropsWithChildren } from 'react';
+
 import { getMod } from '@/utils/get-mod';
+
+import styles from './sidebar.module.css';
+
 
 type SidebarProps = {
 	title?: string;

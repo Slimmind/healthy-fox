@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import { PropsWithChildren, useState } from 'react';
 import './dropdown.styles.css';
-import clsx from 'clsx';
 
 type DropdownProps = {
 	title: string;

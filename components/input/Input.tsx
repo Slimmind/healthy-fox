@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, {
 	forwardRef,
 	InputHTMLAttributes,
@@ -5,7 +6,6 @@ import React, {
 	PropsWithChildren,
 	TextareaHTMLAttributes,
 } from 'react';
-import clsx from 'clsx';
 import './input.styles.css';
 
 const WarningIcon = lazy(() => import('../../icons/warning-icon'));
