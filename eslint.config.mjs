@@ -3,6 +3,10 @@ import tsParser from '@typescript-eslint/parser';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import nextPlugin from '@next/eslint-plugin-next';
+import airbnb from 'eslint-config-airbnb';
+import airbnbTs from 'eslint-config-airbnb-typescript';
+import importPlugin from 'eslint-plugin-import';
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 
 export default [
   {
@@ -21,8 +25,12 @@ export default [
       react: reactPlugin,
       'react-hooks': reactHooksPlugin,
       '@next/next': nextPlugin,
+      import: importPlugin,
+      'jsx-a11y': jsxA11yPlugin,
     },
     rules: {
+      ...airbnb.rules,
+      ...airbnbTs.rules,
       ...tsPlugin.configs.recommended.rules,
       ...reactPlugin.configs.recommended.rules,
       ...reactHooksPlugin.configs.recommended.rules,
@@ -33,12 +41,18 @@ export default [
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'no-console': ['warn', { allow: ['error'] }],
       'react/jsx-props-no-spreading': 'off',
+      'import/prefer-default-export': 'off', // Airbnb prefers default exports, but this is optional
     },
   },
   {
     settings: {
       react: {
         version: 'detect',
+      },
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
       },
     },
   },
