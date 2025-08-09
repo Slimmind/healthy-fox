@@ -1,4 +1,5 @@
 import { ElementType, PropsWithChildren } from 'react';
+
 import styles from './block.module.css';
 
 type BlockProps = {

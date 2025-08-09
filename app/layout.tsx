@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
-import { geistSans, geistMono } from './fonts';
+
+import Footer from '@/components/footer';
 import Header from '@/components/header';
 import Main from '@/components/main';
-import Footer from '@/components/footer';
+
+import { geistSans, geistMono } from './fonts';
 import './globals.css';
 
 
