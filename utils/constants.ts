@@ -1,93 +1,93 @@
 export const appColors = [
-	'102, 51, 153',
-	'255, 121, 0',
-	'150,0,0',
-	'0,120,0',
-	'0,0,150',
-	'46, 139, 130',
-	'150, 150, 150',
+  '102, 51, 153',
+  '255, 121, 0',
+  '150,0,0',
+  '0,120,0',
+  '0,0,150',
+  '46, 139, 130',
+  '150, 150, 150',
 ];
 
 export type ColorOptionType = {
-	isActive: boolean;
-	color: string;
+  isActive: boolean;
+  color: string;
 };
 
 export type MenuItemType = {
-	path: string;
-	name: string;
+  path: string;
+  name: string;
 };
 
 export const FormViews = {
-	LOGIN: 'login',
-	SIGN_UP: 'sign_up',
+  LOGIN: 'login',
+  SIGN_UP: 'sign_up',
 };
 
 export type PanelType = 'menu' | 'search' | 'auth' | 'add' | 'time' | null;
 
 export const PanelTypes = {
-	MENU: 'menu',
-	SEARCH: 'search',
-	AUTH: 'auth',
-	ADD: 'add',
-	TIME: 'time',
+  MENU: 'menu',
+  SEARCH: 'search',
+  AUTH: 'auth',
+  ADD: 'add',
+  TIME: 'time',
 };
 
 export type ValidationRule = {
-	type: 'string' | 'number';
-	required?: boolean;
-	positive?: boolean;
-	integer?: boolean;
-	min?: number;
-	max?: number;
-	message?: {
-		required?: string;
-		positive?: string;
-		integer?: string;
-		min?: string;
-		max?: string;
-	};
+  type: 'string' | 'number';
+  required?: boolean;
+  positive?: boolean;
+  integer?: boolean;
+  min?: number;
+  max?: number;
+  message?: {
+    required?: string;
+    positive?: string;
+    integer?: string;
+    min?: string;
+    max?: string;
+  };
 };
 
 export type InitialValuesType = Record<string, string | number>;
 
 export type FormNodeType = {
-	node: 'field' | 'group' | 'set';
-	id: string;
-	title?: string;
-	items?: FormNodeType[];
-	type?: string; // Optional for field types
-	name?: string; // Optional for field names
-	label?: string; // Optional for field labels
-	description?: string; // Optional for field descriptions
+  node: 'field' | 'group' | 'set';
+  id: string;
+  title?: string;
+  items?: FormNodeType[];
+  type?: string; // Optional for field types
+  name?: string; // Optional for field names
+  label?: string; // Optional for field labels
+  description?: string; // Optional for field descriptions
 };
 
 // Universal FormConfigType
 export type FormConfigType = {
-	formId: string;
-	formTitle: string;
-	formSubtitle: string;
-	formDescription: string;
-	initialValues: InitialValuesType;
-	validationRules?: {
-		[key: string]: ValidationRule; // Validation rules for each field
-	};
-	nodes: FormNodeType[];
+  formId: string;
+  formTitle: string;
+  formSubtitle: string;
+  formDescription: string;
+  initialValues: InitialValuesType;
+  validationRules?: {
+    [key: string]: ValidationRule; // Validation rules for each field
+  };
+  nodes: FormNodeType[];
 };
 
 export const PromptParts = {
-	RESUME: '***Краткое резюме:***',
-	SUMMARY: '***Итог:***',
-	RECOMMENDATIONS: '***Общие рекомендации:***',
-	GROCERIES: '***Продукты к употреблению:***',
+  RESUME: '***Краткое резюме:***',
+  SUMMARY: '***Итог:***',
+  RECOMMENDATIONS: '***Общие рекомендации:***',
+  GROCERIES: '***Продукты к употреблению:***',
 };
 
 export const RenderTypes = {
-	PARAGRAPH: 'paragraph',
-	ORDERED_LIST: 'ordered-list',
-	UNORDERED_LIST: 'unordered-list',
-	TITLE: 'title',
-	SUBTITLE: 'sub-title',
+  PARAGRAPH: 'paragraph',
+  ORDERED_LIST: 'ordered-list',
+  UNORDERED_LIST: 'unordered-list',
+  TITLE: 'title',
+  SUBTITLE: 'sub-title',
 };
 
 export const responseTemplate = `***Краткое резюме:***

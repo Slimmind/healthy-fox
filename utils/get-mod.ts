@@ -28,14 +28,14 @@
  * @see https://ru.bem.info/methodology/naming-convention/
  */
 export function getMod(
-	styles: Record<string, string>,
-	block: string,
-	mods?: string | string[]
+  styles: Record<string, string>,
+  block: string,
+  mods?: string | string[]
 ): string[] {
-	const modList = !mods ? [] : typeof mods === 'string' ? [mods] : mods;
+  const modList = !mods ? [] : typeof mods === 'string' ? [mods] : mods;
 
-	return modList
-		.filter(Boolean) // убираем пустые значения: null, undefined, '', false
-		.map((mod) => styles[`${block}--${mod}`]) // получаем класс из модуля
-		.filter(Boolean) as string[]; // убираем undefined (если класс не найден в CSS-модуле)
+  return modList
+    .filter(Boolean) // убираем пустые значения: null, undefined, '', false
+    .map((mod) => styles[`${block}--${mod}`]) // получаем класс из модуля
+    .filter(Boolean) as string[]; // убираем undefined (если класс не найден в CSS-модуле)
 }

@@ -1,14 +1,19 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 import logoImg from '@/assets/logo.png';
 
 import styles from './site-logo.module.css';
 
 export const SiteLogo = () => {
-	return (
-    <Link className={styles.siteLogo} href='/' aria-label='site logo'>
-      <Image className={styles.image} src={logoImg} alt='A plate with food on it' priority />
+  return (
+    <Link className={styles.siteLogo} href="/" aria-label="site logo">
+      <Image
+        className={styles.image}
+        src={logoImg}
+        alt="A plate with food on it"
+        priority
+      />
     </Link>
-	);
+  );
 };
