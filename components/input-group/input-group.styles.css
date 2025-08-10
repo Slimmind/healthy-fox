@@ -1,9 +1,5 @@
-.input-group {
-
-}
-
 .input-group__title {
-	display: inline-block;
+  display: inline-block;
   vertical-align: top;
   padding: 4px 14px;
   background-color: var(--accent-color);
@@ -14,20 +10,20 @@
 }
 
 .input-group__body {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
   border: var(--main-border-width) solid var(--accent-color);
   border-radius: 0 var(--radius-small) var(--radius-small);
 }
 
-.input-group:has(input:invalid) .input-group__body {
-	border-color: var(--color-red);
+.input-group--with-description .input-group__body,
+.input-group--invalid .input-group__body {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-.input-group--with-description .input-group__body
-.input-group--invalid .input-group__body {
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
+.input-group:has(input:invalid) .input-group__body {
+  border-color: var(--color-red);
 }
