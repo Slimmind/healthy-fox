@@ -19,15 +19,15 @@
 }
 
 .tabs__header-item--active {
-	border: 0;
-	color: var(--accent-color);
-	background-color: var(--color-white-transparent);
+  border: 0;
+  color: var(--accent-color);
+  background-color: var(--color-white-transparent);
 }
 
 .tabs__content-item {
-	display: none;
+  display: none;
 }
 
 .tabs__content-item--active {
-	display: block;
+  display: block;
 }
