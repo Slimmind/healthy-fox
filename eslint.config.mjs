@@ -12,7 +12,7 @@ import prettierConfig from 'eslint-config-prettier';
 
 export default [
   {
-    ignores: ['.next/**'],
+    ignores: ['.next/**', 'node_modules', 'dist', 'build', 'lint-staged.config.js'],
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       ecmaVersion: 12,
