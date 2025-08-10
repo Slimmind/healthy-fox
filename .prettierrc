@@ -10,7 +10,7 @@
   "jsxBracketSameLine": false,
   "overrides": [
     {
-      "files": ["icons/**/*.{js,jsx,ts,tsx}"],
+      "files": ["icons/**/*.{ts,tsx}"],
       "options": {
         "printWidth": 9999
       }
