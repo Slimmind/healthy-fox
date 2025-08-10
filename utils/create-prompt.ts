@@ -1,4 +1,5 @@
-import { InitialValuesType, PromptParts } from './constants';
+import { PromptParts } from '@/constants/prompts';
+import { InitialValuesType } from '@/types/prompts';
 
 export const createPrompt = (data: InitialValuesType): string => `
 	Based on the following patient data:
@@ -9,14 +10,20 @@ export const createPrompt = (data: InitialValuesType): string => `
 	Weight: ${data.weight} kg
 	Blood Pressure: ${data.bloodPressure}
 	Additional Notes: ${data.notes}
-	Please provide a detailed, structured response focused specifically on nutrition and dietary recommendations.
+	Please provide a detailed, structured response focused specifically on
+  nutrition and dietary recommendations.
 
 	The structure of the response should be as follows:
 
 	Summary and analysis of the patient's current health and nutritional status.
-	A list of personalized recommendations focused on improving the patient’s nutrition and overall health, especially if any problems are identified.
-	A list of recommended foods tailored to the patient's needs and nutritional goals.
-	Conclusion with advice on lifestyle changes, dietary improvements, physical exercise, and any other health-related suggestions. Be sure to consider the patient’s age, gender, and any relevant health conditions.
+	A list of personalized recommendations focused on improvingthe patient’s
+  nutrition and overall health, especially if any problems are identified.
+	A list of recommended foods tailored to the patient's
+  needs and nutritional goals.
+	Conclusion with advice on lifestyle changes, dietary improvements,
+  physical exercise, and any other health-related suggestions.
+  Be sure to consider the patient’s age, gender,
+  and any relevant health conditions.
 	Please use the following markers for structuring the response:
 
 	Insert ${PromptParts.RESUME} before the summary and analysis.

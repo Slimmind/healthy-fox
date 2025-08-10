@@ -20,10 +20,13 @@
  * getMod(styles, 'card', undefined);
  * // → []
  *
- * @param styles - Объект стилей, импортированный из CSS-модуля (например, `import styles from './Block.module.css'`)
+ * @param styles - Объект стилей, импортированный из CSS-модуля (например,
+ * `import styles from './Block.module.css'`)
  * @param block - Базовое имя блока (например, 'sidebar', 'button', 'card')
- * @param mods - Один модификатор (`string`) или массив модификаторов (`string[]`), может быть `undefined` или `null`
- * @returns Массив строк — валидных CSS-классов из модуля. Если модификатор отсутствует или не найден, возвращается пустой массив.
+ * @param mods - Один модификатор (`string`) или массив модификаторов (`string[]`),
+ * может быть `undefined` или `null`
+ * @returns Массив строк — валидных CSS-классов из модуля.
+ * Если модификатор отсутствует или не найден, возвращается пустой массив.
  *
  * @see https://ru.bem.info/methodology/naming-convention/
  */
@@ -35,7 +38,7 @@ export function getMod(
   const modList = !mods ? [] : typeof mods === 'string' ? [mods] : mods;
 
   return modList
-    .filter(Boolean) // убираем пустые значения: null, undefined, '', false
-    .map((mod) => styles[`${block}--${mod}`]) // получаем класс из модуля
-    .filter(Boolean) as string[]; // убираем undefined (если класс не найден в CSS-модуле)
+    .filter(Boolean)
+    .map((mod) => styles[`${block}--${mod}`])
+    .filter(Boolean) as string[];
 }
