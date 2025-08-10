@@ -1,133 +1,3 @@
-.input {
-	position: relative;
-}
-
-.input--radio {
-	display: inline-block;
-	vertical-align: top;
-	margin: 0 10px 0 0;
-}
-
-.input--radio label,
-.input--checkbox label {
-	position: relative;
-	display: flex;
-	align-items: center;
-	min-height: 40px;
-	padding-left: 40px;
-	background-color: var(--accent-color);
-	border-radius: var(--radius-main);
-	cursor: pointer;
-}
-
-.input--checkbox label {
-	background-color: transparent;
-	color: var(--accent-color);
-}
-
-.input--radio label::before,
-.input--radio label::after,
-.input--checkbox label::before,
-.input--checkbox label::after {
-	content: '';
-	position: absolute;
-}
-
-.input--radio label::before,
-.input--checkbox label::before {
-	top: calc(50% - 16px);
-	left: 4px;
-	width: 32px;
-	height: 32px;
-	background-color: var(--color-white);
-}
-
-.input--radio label::before,
-.input--radio label::after {
-	border-radius: 50%;
-}
-
-.input--radio label::after {
-	top: 8px;
-	left: 8px;
-	width: 24px;
-	height: 24px;
-	background-color: var(--accent-color);
-	opacity: 0;
-	transform: scale(.8);
-	transition: opacity .3s, transform .3s ease-in-out;
-}
-
-.input--checkbox label::before {
-	border: var(--main-border-width) solid var(--accent-color);
-	border-radius: var(--radius-small);
-}
-
-.input--checkbox label::after {
-	top: calc(50% - 14px);
-	left: 14px;
-	width: 12px;
-	height: 20px;
-	border-right: var(--main-border-width) solid var(--accent-color);
-	border-bottom: var(--main-border-width) solid var(--accent-color);
-	opacity: 0;
-	transform: scale(.8) rotate(45deg);
-	transition: opacity .3s, transform .3s ease-in-out;
-}
-
-.input--radio input,
-.input--checkbox input {
-	position: absolute;
-	width: 0;
-	height: 0;
-	opacity: 0;
-	pointer-events: none;
-}
-
-.input--radio input:checked + label::after,
-.input--checkbox input:checked + label::after {
-	opacity: 1;
-	transform: scale(1);
-}
-
-.input--checkbox input:checked + label::after {
-	transform: scale(1) rotate(45deg);
-}
-
-.input--invalid input,
-.input--invalid textarea,
-.input--with-description input,
-.input--with-description textarea {
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
-}
-
-.input--invalid label {
-  background-color: var(--color-red);
-}
-
-.input--invalid label + .input__wrap input,
-.input--invalid label + .input__wrap textarea {
-  border-color: var(--color-red);
-  color: var(--color-red);
-}
-
-.input--invalid.input--radio label,
-.input--invalid.input--checkbox label {
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
-	color: var(--color-white);
-}
-
-.input--invalid .input__description {
-	background-color: var(--color-red);
-	border-radius: 0;
-}
-
-.input__wrap {
-  position: relative;
-}
-
 input,
 textarea {
   display: block;
@@ -159,14 +29,168 @@ label {
   font-weight: bold;
 }
 
+.input--radio input,
+.input--checkbox input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.input--invalid input,
+.input--invalid textarea,
+.input--with-description input,
+.input--with-description textarea {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 label + .input__wrap input,
 label + .input__wrap textarea {
   border-top-left-radius: 0;
 }
 
+.input {
+  position: relative;
+}
+
+.input--radio {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 10px 0 0;
+}
+
+.input--radio label,
+.input--checkbox label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  padding-left: 40px;
+  background-color: var(--accent-color);
+  border-radius: var(--radius-main);
+  cursor: pointer;
+}
+
+.input--checkbox label {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+.input--radio label::before,
+.input--radio label::after,
+.input--checkbox label::before,
+.input--checkbox label::after {
+  content: '';
+  position: absolute;
+}
+
+.input--radio label::before,
+.input--checkbox label::before {
+  top: calc(50% - 16px);
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-white);
+}
+
+.input--radio label::before,
+.input--radio label::after {
+  border-radius: 50%;
+}
+
+.input--radio label::after {
+  top: 8px;
+  left: 8px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--accent-color);
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.3s,
+    transform 0.3s ease-in-out;
+}
+
+.input--checkbox label::before {
+  border: var(--main-border-width) solid var(--accent-color);
+  border-radius: var(--radius-small);
+}
+
+.input--checkbox label::after {
+  top: calc(50% - 14px);
+  left: 14px;
+  width: 12px;
+  height: 20px;
+  border-right: var(--main-border-width) solid var(--accent-color);
+  border-bottom: var(--main-border-width) solid var(--accent-color);
+  opacity: 0;
+  transform: scale(0.8) rotate(45deg);
+  transition:
+    opacity 0.3s,
+    transform 0.3s ease-in-out;
+}
+
+.input--radio input:checked + label::after,
+.input--checkbox input:checked + label::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.input--checkbox input:checked + label::after {
+  transform: scale(1) rotate(45deg);
+}
+
 .input__wrap:has(button) input,
 .input__wrap:has(button) textarea {
   padding-right: 40px;
+}
+
+.input__description {
+  background-color: var(--accent-color);
+  font-style: italic;
+}
+
+.input__error-message,
+.input__description {
+  padding: 0 14px 4px;
+  background-color: var(--color-red);
+  border-radius: 0 0 var(--radius-small) var(--radius-small);
+  color: var(--color-white);
+  font-size: 12px;
+}
+
+.input__error-message svg {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.input--invalid label {
+  background-color: var(--color-red);
+}
+
+.input--invalid label + .input__wrap input,
+.input--invalid label + .input__wrap textarea {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.input--invalid.input--radio label,
+.input--invalid.input--checkbox label {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  color: var(--color-white);
+}
+
+.input--invalid .input__description {
+  background-color: var(--color-red);
+  border-radius: 0;
+}
+
+.input__wrap {
+  position: relative;
 }
 
 .input__wrap .btn {
@@ -190,28 +214,8 @@ label + .input__wrap textarea {
   margin-bottom: 0;
 }
 
-.input__error-message,
-.input__description {
-  padding: 0 14px 4px;
-  background-color: var(--color-red);
-  border-radius: 0 0 var(--radius-small) var(--radius-small);
-  color: var(--color-white);
-  font-size: 12px;
-}
-
-.input__error-message svg {
-	display: inline-block;
-	vertical-align: top;
-	margin-right: 5px;
-}
-
-.input__description {
-  background-color: var(--accent-color);
-	font-style: italic;
-}
-
 .input--disabled {
-	cursor: not-allowed;
-	opacity: .5;
-	pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
