@@ -18,12 +18,6 @@
   border-radius: 0 var(--radius-small) var(--radius-small);
 }
 
-.input-group--with-description .input-group__body,
-.input-group--invalid .input-group__body {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .input-group:has(input:invalid) .input-group__body {
   border-color: var(--color-red);
 }
