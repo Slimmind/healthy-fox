@@ -1,4 +1,4 @@
-.plateRoundel {
+.plate__roundel {
   display: flex;
   gap: 10px;
   height: 100%;
@@ -11,44 +11,37 @@
   overflow: hidden;
 }
 
-.plateSection {
+.plate__roundel-section {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: calc(50% - 5px);
 }
 
-.plateVegetables,
-.plateFruits,
-.plateProteins,
-.plateCarbohydrates {
+.plate__roundel-vegetables,
+.plate__roundel-proteins,
+.plate__roundel-carbohydrates {
   border-radius: var(--radius-main);
-  transition: opacity .3s;
+  transition: opacity 0.3s;
 }
 
-.plateVegetables:hover,
-.plateFruits:hover,
-.plateProteins:hover,
-.plateCarbohydrates:hover {
-  opacity: .8;
-}
-
-.plateVegetables {
-  height: 65%;
+.plate__roundel-vegetables {
+  height: 100%;
   background-color: var(--color-green);
 }
 
-.plateFruits {
-  height: 35%;
-  background-color: var(--color-main);
-}
-
-.plateProteins {
+.plate__roundel-proteins {
   height: calc(50% - 5px);
   background-color: var(--color-red);
 }
 
-.plateCarbohydrates {
+.plate__roundel-carbohydrates {
   height: calc(50% - 5px);
   background-color: var(--color-yellow);
+}
+
+.plate__roundel-vegetables:hover,
+.plate__roundel-proteins:hover,
+.plate__roundel-carbohydrates:hover {
+  opacity: 0.8;
 }

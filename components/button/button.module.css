@@ -58,6 +58,10 @@
   position: absolute;
 }
 
+.button--delete {
+  padding: 10px;
+}
+
 .button--search::before {
   top: 2px;
   right: 2px;
@@ -90,7 +94,9 @@
 }
 
 .button--add::before,
-.button--add::after {
+.button--add::after,
+.button--remove::before,
+.button--remove::after {
   top: calc(50% - 2px);
   left: calc(50% - 18px);
   width: 36px;
@@ -101,6 +107,14 @@
 
 .button--add::after {
   transform: rotate(90deg);
+}
+
+.button--remove::before {
+  transform: rotate(45deg);
+}
+
+.button--remove::after {
+  transform: rotate(-45deg);
 }
 
 .button--auth::before {

@@ -4,7 +4,7 @@ import Footer from '@/components/footer';
 import Header from '@/components/header';
 import Main from '@/components/main';
 
-import { geistSans, geistMono } from './fonts';
+import { geistSans } from './fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.className} ${geistMono.variable}`}>
+      <body className={`${geistSans.className}`}>
         <Header />
         <Main>{children}</Main>
         <Footer />

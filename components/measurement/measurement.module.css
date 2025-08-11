@@ -46,15 +46,15 @@
   justify-content: center;
   box-shadow: inset 0 0 0 2px var(--color-blue-transparent);
   border-radius: var(--radius-main) var(--radius-main) 0 0;
-  background-color: var(--color-blue-transparent);
   background: repeating-linear-gradient(
     45deg,
-    var(--color-blue-transparent) 0px,
+    var(--color-blue-transparent) 0,
     var(--color-blue-transparent) 2px,
     transparent 2px,
     transparent 4px
   );
-  transition: height .3s;
+  background-color: var(--color-blue-transparent);
+  transition: height 0.3s;
 }
 
 .chosenGraphColumn:first-of-type {
@@ -66,16 +66,29 @@
 }
 
 .chosenGraphColumnOver {
-  background-color: var(--color-red-transparent);
-  background: repeating-linear-gradient(
-    45deg,
-    var(--color-red-transparent) 0px,
-    var(--color-red-transparent) 2px,
-    transparent 2px,
-    transparent 4px
-  );
+  background: var(--color-red-transparent)
+    repeating-linear-gradient(
+      45deg,
+      var(--color-red-transparent) 0,
+      var(--color-red-transparent) 2px,
+      transparent 2px,
+      transparent 4px
+    );
   box-shadow: inset 0 0 0 2px var(--color-red-transparent);
   color: var(--color-red);
+}
+
+.chosenGraphColumnEnough {
+  background: var(--color-green-transparent)
+    repeating-linear-gradient(
+      45deg,
+      var(--color-green-transparent) 0,
+      var(--color-green-transparent) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  box-shadow: inset 0 0 0 2px var(--color-green-transparent);
+  color: var(--color-green);
 }
 
 .graphTitles {
