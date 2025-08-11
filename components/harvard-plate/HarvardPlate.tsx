@@ -7,6 +7,7 @@ import { ProductType } from '@/types/common';
 import { MeasurementDataType } from '@/types/measurement';
 
 import Button from '../button';
+import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
 import PlateRoundel from '../plate-roundel';
 import Sidebar from '../sidebar';
@@ -90,13 +91,14 @@ export const HarvardPlate = () => {
         </ul>
         <div className={styles.myChoice}>
           <h4 className={styles.myChoiceTitle}>Мой выбор:</h4>
-          <ul className={styles.chosenProductsList}>
+          {/* <ul className={styles.chosenProductsList}>
             {chosenProducts.map((product) => (
               <li key={product.id} className={styles.chosenProduct}>
                 {product.name}
               </li>
             ))}
-          </ul>
+          </ul> */}
+          <ChosenProductList products={chosenProducts} />
         </div>
       </Sidebar>
       <nav className={styles.plate__switcher}>

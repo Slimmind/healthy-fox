@@ -1,0 +1,5 @@
+.chosen-product-list__item-name {
+  display: flex;
+  align-items: center;
+}
+
