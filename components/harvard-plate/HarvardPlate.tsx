@@ -3,13 +3,15 @@
 import { useEffect, useState } from 'react';
 
 import meals from '@/meals.json';
-import { ProductType } from '@/types/common';
+import { Nutrient, ProductType } from '@/types/common';
 import { MeasurementDataType } from '@/types/measurement';
 
 import Button from '../button';
+import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
 import PlateRoundel from '../plate-roundel';
 import Sidebar from '../sidebar';
+// import Switcher from '../switcher';
 
 import styles from './harvard-plate.module.css';
 
@@ -43,6 +45,16 @@ export const HarvardPlate = () => {
     setProductsList(filteredMeals);
   };
 
+  const removeProduct = (productId: string): void => {
+    const productToRemove = chosenProducts.find(({ id }) => id === productId);
+    const updatedChosenProduct = chosenProducts.filter(
+      (product) => product.id !== productId
+    );
+    const updatedProductsList = [productToRemove, ...productsList];
+    setChosenProducts(updatedChosenProduct);
+    setProductsList(updatedProductsList);
+  };
+
   const currentProductClickHandler = (currentProduct: ProductType): void => {
     const updatedProductsList = productsList.filter(
       (productFromList: ProductType) => productFromList.id !== currentProduct.id
@@ -54,16 +66,33 @@ export const HarvardPlate = () => {
 
   useEffect(() => {
     const totalCalories = Math.round(
-      chosenProducts.reduce((acc, product) => acc + product.calories, 0)
+      chosenProducts.reduce(
+        (acc, product) =>
+          acc + (product.calories / product.unitValue) * product.portionSize,
+        0
+      )
     );
     const totalProteins = Math.round(
-      chosenProducts.reduce((acc, product) => acc + product.proteins, 0)
+      chosenProducts.reduce(
+        (acc, product) =>
+          acc + (product.proteins / product.unitValue) * product.portionSize,
+        0
+      )
     );
     const totalFats = Math.round(
-      chosenProducts.reduce((acc, product) => acc + product.fats, 0)
+      chosenProducts.reduce(
+        (acc, product) =>
+          acc + (product.fats / product.unitValue) * product.portionSize,
+        0
+      )
     );
     const totalCarbohydrates = Math.round(
-      chosenProducts.reduce((acc, product) => acc + product.carbohydrates, 0)
+      chosenProducts.reduce(
+        (acc, product) =>
+          acc +
+          (product.carbohydrates / product.unitValue) * product.portionSize,
+        0
+      )
     );
 
     setMealSummary({
@@ -90,21 +119,25 @@ export const HarvardPlate = () => {
         </ul>
         <div className={styles.myChoice}>
           <h4 className={styles.myChoiceTitle}>Мой выбор:</h4>
-          <ul className={styles.chosenProductsList}>
+          {/* <ul className={styles.chosenProductsList}>
             {chosenProducts.map((product) => (
               <li key={product.id} className={styles.chosenProduct}>
                 {product.name}
               </li>
             ))}
-          </ul>
+          </ul> */}
+          <ChosenProductList
+            products={chosenProducts}
+            removeHandler={removeProduct}
+          />
         </div>
       </Sidebar>
       <nav className={styles.plate__switcher}>
         <Button onClick={() => filterMeals('breakfast')}>Завтрак</Button>
         <Button onClick={() => filterMeals('lunch')}>Обед</Button>
         <Button onClick={() => filterMeals('dinner')}>Ужин</Button>
-        <Button onClick={() => filterMeals('drink')}>Напиток</Button>
       </nav>
+      {/* <Switcher config={} /> */}
       <PlateRoundel />
       <Measurement userValues={mockUserData} chosenValues={mealSummary} />
       <Sidebar title="Характеристики" mods="right">
@@ -128,6 +161,34 @@ export const HarvardPlate = () => {
             <p className={styles.characteristic}>
               <strong>Углеводы:</strong> {currenProduct.carbohydrates} г.
             </p>
+            <p className={styles.characteristic}>
+              <strong>Витамины:</strong>
+            </p>
+            {currenProduct.vitamins.map((vitamin: Nutrient) => {
+              const [key, value] = Object.entries(vitamin)[0] as [
+                string,
+                number,
+              ];
+              return (
+                <p key={key} className={styles.characteristic}>
+                  <strong>{key}:</strong> {value}
+                </p>
+              );
+            })}
+            <p className={styles.characteristic}>
+              <strong>Минералы:</strong>
+            </p>
+            {currenProduct.minerals.map((mineral: Nutrient) => {
+              const [key, value] = Object.entries(mineral)[0] as [
+                string,
+                number,
+              ];
+              return (
+                <p key={key} className={styles.characteristic}>
+                  <strong>{key}:</strong> {value}
+                </p>
+              );
+            })}
             <p className={styles.characteristic}>{currenProduct.description}</p>
             <p className={styles.characteristic}>{currenProduct.storage}</p>
           </>
