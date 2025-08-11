@@ -1,8 +1,10 @@
 export type ProductType = {
   id: string;
   name: string;
-  mealTimes: string[];
-  preferredMealTimes: string[];
+  mealTimes: Array<'breakfast' | 'lunch' | 'dinner' | 'snack'>;
+  preferredMealTimes: Array<
+    'when_ill' | 'morning' | 'afternoon' | 'evening' | 'night'
+  >;
   calories: number;
   proteins: number;
   fats: number;

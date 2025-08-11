@@ -1,0 +1,4 @@
+.chosen-product-list {
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+}

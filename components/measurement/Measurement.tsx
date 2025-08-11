@@ -10,6 +10,7 @@ type MeasurementProps = {
 };
 
 export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
+  // const normalValue = 60;
   const getChosenHeight = (key: keyof MeasurementDataType): string => {
     const user = userValues[key];
     const chosen = chosenValues[key];
@@ -25,21 +26,27 @@ export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
     return `${Math.max(0, Math.min(getPercentage(), 100))}%`;
   };
 
+  const getPercentage = (chosenValue: number, userValue: number): number => {
+    if (chosenValue >= userValue) {
+      return (userValue / chosenValue) * 100;
+    }
+    return 100;
+  };
+
   const getUserHeight = (key: keyof MeasurementDataType): string => {
-    const user = userValues[key];
-    const chosen = chosenValues[key];
+    const userValue = userValues[key];
+    const chosenValue = chosenValues[key];
 
-    const getPercentage = (): number => {
-      if (chosen >= user) {
-        return (user / chosen) * 100;
-      }
-      return 100;
-    };
-
-    return `${Math.max(0, Math.min(getPercentage(), 100))}%`;
+    return `
+      ${Math.max(0, Math.min(getPercentage(chosenValue, userValue), 100))}%
+    `;
   };
 
   const shouldHighlightRed = (key: keyof MeasurementDataType): boolean => {
+    return chosenValues[key] > userValues[key];
+  };
+
+  const shouldHighlightGreen = (key: keyof MeasurementDataType): boolean => {
     return chosenValues[key] > userValues[key];
   };
 
@@ -57,7 +64,6 @@ export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
         {Object.entries(userValues).map(([key, value]) => {
           const height = getUserHeight(key as keyof MeasurementDataType);
           const isOver = shouldHighlightRed(key as keyof MeasurementDataType);
-          console.log('OVVER: ', isOver);
           return (
             <li
               key={key}
@@ -76,13 +82,16 @@ export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
         {Object.entries(chosenValues).map(([key, value]) => {
           const height = getChosenHeight(key as keyof MeasurementDataType);
           const isOver = shouldHighlightRed(key as keyof MeasurementDataType);
+          const isEnough = shouldHighlightGreen(
+            key as keyof MeasurementDataType
+          );
 
           return (
             <li
               key={key}
               className={`${styles.chosenGraphColumn} ${
                 isOver ? styles.chosenGraphColumnOver : ''
-              }`}
+              } ${isEnough ? styles.chosenGraphColumnEnough : ''}}`}
               style={{ height: height }}
             >
               <b className={styles.choseGraphColumnValue}>{value || ''}</b>

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { PropsWithChildren } from 'react';
 
-import { getMod } from '@/utils/get-mod';
+import getMod from '@/utils/get-mod';
 
 import styles from './sidebar.module.css';
 
