@@ -1,12 +1,28 @@
+/* stylelint-disable color-function-notation */
 :root {
-  --background: #fff;
-  --foreground: #171717;
   --transparency: 0.2;
   --color-main-value: 102, 51, 153;
-  --color-main: var(--color-main-value);
+  --color-blue-value: 0, 100, 150;
+  --color-green-value: 107, 142, 35;
+  --color-red-value: 139, 0, 0;
+  --color-yellow-value: 218, 165, 32;
+  --color-main: rgb(var(--color-main-value));
+  --color-blue: rgb(var(--color-blue-value));
+  --color-green: rgb(var(--color-green-value));
+  --color-red: rgb(var(--color-red-value));
+  --color-yellow: rgb(var(--color-yellow-value));
   --color-main-transparent: rgba(var(--color-main-value), var(--transparency));
+  --color-blue-transparent: rgba(var(--color-blue-value), var(--transparency));
+  --color-red-transparent: rgba(var(--color-red-value), var(--transparency));
+  --color-blue-light: #cccce1;
   --color-white: #fff;
+  --color-gray: #cdcdcd;
   --color-gray-light: #efefef;
+  --radius-main: 10px;
+  --border-width-main: 2px;
+  --background: #fff;
+  --foreground: #171717;
+  --shadow: 0 0 6px 0 var(--color-main-transparent);
 }
 
 @media (prefers-color-scheme: light) {
@@ -58,7 +74,7 @@ img {
     transparent 1px
   );
   background-size: 20px 20px;
-  color: var(--accent-color);
+  color: var(--color-main);
 }
 
 .layout--authorized::before {
@@ -71,6 +87,10 @@ img {
   background: url('/src/assets/bg.png') no-repeat center center / 40dvh auto;
   opacity: 0.2;
   pointer-events: none;
+}
+
+ul {
+  list-style: none;
 }
 
 @media (prefers-color-scheme: dark) {

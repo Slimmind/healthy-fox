@@ -17,7 +17,7 @@
 .block__title {
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: var(--main-border-width) solid var(--color-white-transparent);
+  border-bottom: var(--border-width-main) solid var(--color-white-transparent);
   font-weight: 700;
 }
 

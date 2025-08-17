@@ -4,7 +4,7 @@ textarea {
   width: 100%;
   padding: 10px;
   background-color: var(--color-white);
-  border: var(--main-border-width) solid var(--accent-color);
+  border: var(--border-width-main) solid var(--accent-color);
   border-radius: var(--radius-small);
   color: var(--accent-color);
   font-size: 18px;
