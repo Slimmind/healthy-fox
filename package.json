@@ -12,7 +12,8 @@
     "format:check": "prettier --check .",
     "stylelint": "stylelint '**/*.css'",
     "stylelint:fix": "stylelint '**/*.css' --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "precommit": "npm run lint:fix && npm run format && npm run stylelint:fix"
   },
   "dependencies": {
     "clsx": "^2.1.1",

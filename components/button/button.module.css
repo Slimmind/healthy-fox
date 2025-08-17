@@ -1,0 +1,183 @@
+.button {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 20px;
+  background-color: var(--color-main);
+  border-width: var(--border-width-main);
+  border-style: solid;
+  border-color: var(--color-main);
+  border-radius: var(--radius-main);
+  box-shadow: var(--shadow);
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+  transition:
+    box-shadow 0.3s,
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.button:hover,
+.button:focus-visible {
+  box-shadow: var(--shadow);
+  background-color: var(--color-white);
+  color: var(--color-main);
+}
+
+.button--bordered {
+  background-color: var(--color-white);
+  border-color: var(--color-main);
+  color: var(--color-main);
+}
+
+.button--bordered:hover,
+.button--bordered:focus-visible {
+  box-shadow: var(--shadow);
+  background-color: var(--color-main);
+  color: var(--color-white);
+}
+
+.button--icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.button::before,
+.button::after {
+  content: '';
+  position: absolute;
+}
+
+.button--search::before {
+  top: 2px;
+  right: 2px;
+  width: 28px;
+  height: 28px;
+  border: var(--border-width-main) solid var(--color-main);
+  border-radius: 50%;
+}
+
+.button--search::after {
+  bottom: 10px;
+  left: 4px;
+  width: 14px;
+  height: var(--border-width-main);
+  background-color: var(--color-main);
+  border-radius: 2px 0 0 2px;
+  transform: rotate(-45deg);
+}
+
+.button--menu::before {
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: var(--border-width-main);
+  background-color: var(--color-main);
+  border-radius: 2px;
+  box-shadow:
+    0 12px 0 0 var(--color-main),
+    0 24px 0 0 var(--color-main);
+}
+
+.button--add::before,
+.button--add::after {
+  top: calc(50% - 2px);
+  left: calc(50% - 18px);
+  width: 36px;
+  height: var(--border-width-main);
+  background-color: var(--color-main);
+  border-radius: 2px;
+}
+
+.button--add::after {
+  transform: rotate(90deg);
+}
+
+.button--auth::before {
+  top: 2px;
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  border: var(--border-width-main) solid var(--color-main);
+  border-radius: 50%;
+}
+
+.button--auth::after {
+  top: 18px;
+  left: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  border: var(--border-width-main) solid var(--color-main);
+  border-radius: 50%;
+}
+
+.button--wide {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin-inline: auto;
+  backdrop-filter: var(--blur);
+  text-align: center;
+}
+
+.button--wide svg {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+}
+
+.button--secondary {
+  background-color: var(--color-main-transparent);
+  border-color: var(--color-main-transparent);
+  color: var(--color-main);
+  transition:
+    box-shadow 0.3s,
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.button--secondary:hover,
+.button--secondary:focus-visible {
+  background-color: var(--color-main);
+  color: var(--color-white);
+}
+
+.button--arrow-left::before,
+.button--arrow-right::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-left: var(--border-width-main) solid var(--color-main);
+  border-bottom: var(--border-width-main) solid var(--color-main);
+  border-radius: 2px;
+}
+
+.button--arrow-left::before {
+  transform: translate(-40%, -50%) rotate(45deg);
+}
+
+.button--arrow-right::before {
+  transform: translate(-60%, -50%) rotate(225deg);
+}
+
+a.button {
+  text-decoration: none;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

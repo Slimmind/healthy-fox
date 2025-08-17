@@ -30,7 +30,7 @@
  *
  * @see https://ru.bem.info/methodology/naming-convention/
  */
-export function getMod(
+export default function getMod(
   styles: Record<string, string>,
   block: string,
   mods?: string | string[]

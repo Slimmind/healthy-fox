@@ -1,11 +1,13 @@
+import clsx from 'clsx';
+import Link from 'next/link';
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
 
 import getMod from '../../utils/get-mod';
-import './button.styles.css';
+
+import styles from './button.module.css';
 
 type CommonProps = {
-  mod?: string;
-  activeClass?: string;
+  mod?: string | string[];
 } & PropsWithChildren;
 
 type ButtonProps = ComponentPropsWithoutRef<'button'> &
@@ -23,15 +25,15 @@ type Props = ButtonProps | AnchorProps;
 const isAnchorProps = (props: Props): props is AnchorProps => 'href' in props;
 
 export const Button = (props: Props) => {
-  const { mod = 'primary', activeClass, children, ...restProps } = props;
-  const classes = `btn ${getMod('btn', mod)} ${activeClass ? activeClass : ''}`;
+  const { mod, children, ...restProps } = props;
+  const classes = clsx(styles.button, getMod(styles, 'button', mod));
 
   if (isAnchorProps(props)) {
     const { href, ...anchorProps } = restProps as AnchorProps;
     return (
-      <a className={classes} href={href} {...anchorProps}>
+      <Link className={classes} href={href} {...anchorProps}>
         {children}
-      </a>
+      </Link>
     );
   } else {
     const { type, ...buttonProps } = restProps as ButtonProps;
