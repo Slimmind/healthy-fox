@@ -1,6 +1,7 @@
 /* stylelint-disable color-function-notation */
 :root {
-  --transparency: 0.2;
+  --transparency: 0.3;
+  --transparency-weak: 0.1;
   --color-main-value: 102, 51, 153;
   --color-blue-value: 0, 100, 150;
   --color-green-value: 107, 142, 35;
@@ -14,6 +15,10 @@
   --color-main-transparent: rgba(var(--color-main-value), var(--transparency));
   --color-blue-transparent: rgba(var(--color-blue-value), var(--transparency));
   --color-red-transparent: rgba(var(--color-red-value), var(--transparency));
+  --color-main-transparent-weak: rgba(
+    var(--color-main-value),
+    var(--transparency-weak)
+  );
   --color-blue-light: #cccce1;
   --color-white: #fff;
   --color-gray: #cdcdcd;
