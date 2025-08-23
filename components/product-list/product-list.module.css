@@ -1,0 +1,58 @@
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: calc(50% - 10px);
+  max-height: calc(50% - 10px);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-gray-light);
+  overflow-y: auto;
+}
+
+.product-list__item {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  padding: 10px;
+  background-color: var(--color-gray-light);
+  border-radius: var(--radius-main);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.product-list__item:hover,
+.product-list__item:focus-visible {
+  background-color: var(--color-gray);
+}
+
+.product-list__markers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.product-list__marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+.product-list__marker--proteins {
+  background-color: var(--color-blue);
+}
+
+.product-list__marker--fiber {
+  background-color: var(--color-green);
+}
+
+.product-list__marker--carbohydrates {
+  background-color: var(--color-orange);
+}
+
+.product-list__marker--fats {
+  background-color: var(--color-violet);
+}

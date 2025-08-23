@@ -26,8 +26,13 @@
 .product-characteristics__item {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  gap: 10px;
+  padding: 5px 0;
   font-size: 12px;
+}
+
+.product-characteristics__list-wrap .product-characteristics__item {
+  padding: 5px;
 }
 
 .product-characteristics__list li:nth-child(even) {
