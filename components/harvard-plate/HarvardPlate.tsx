@@ -2,19 +2,20 @@
 
 import { useEffect, useState } from 'react';
 
-import meals from '@/meals.json';
 import { ProductType } from '@/types/common';
 import { MeasurementDataType } from '@/types/measurement';
 
-import Button from '../button';
+// import Button from '../button';
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
 import PlateRoundel from '../plate-roundel';
 import ProductCharacteristics from '../product-characteristics';
+import ProductList from '../product-list';
 import Sidebar from '../sidebar';
-// import Switcher from '../switcher';
+import Switcher from '../switcher';
 
 import styles from './harvard-plate.module.css';
+import { createSwitcherConfig } from './switcher.config';
 
 const initialMealSummary = {
   calories: 0,
@@ -34,15 +35,15 @@ export const HarvardPlate = () => {
   const [productsList, setProductsList] = useState<ProductType[]>([]);
   const [currenProduct, setCurrenProduct] = useState<ProductType | null>(null);
   const [chosenProducts, setChosenProducts] = useState<ProductType[]>([]);
+  const [mealTime, setMealTime] = useState<string>('');
   const [mealSummary, setMealSummary] =
     useState<MeasurementDataType>(initialMealSummary);
 
-  const filterMeals = (mealTime: string): void => {
-    const filteredMeals = meals.filter((meal) =>
-      meal.mealTimes.includes(mealTime)
-    );
-    setProductsList(filteredMeals);
-  };
+  const switcherConfig = createSwitcherConfig(
+    productsList,
+    setProductsList,
+    setMealTime
+  );
 
   const removeProduct = (productId: string): void => {
     const productToRemove = chosenProducts.find(({ id }) => id === productId);
@@ -109,39 +110,21 @@ export const HarvardPlate = () => {
 
   return (
     <div className={styles.plate}>
-      <Sidebar title="Продукты" mods="left">
-        <ul className={styles.productsList}>
-          {productsList.map((meal: ProductType) => (
-            <li
-              key={meal.id}
-              onClick={() => currentProductClickHandler(meal)}
-              className={styles.meal}
-            >
-              {meal.name}
-            </li>
-          ))}
-        </ul>
+      <Sidebar title={`${mealTime || 'Продукты'}`} mods="left">
+        <ProductList
+          products={productsList}
+          choseProductHandler={currentProductClickHandler}
+        />
         <div className={styles.myChoice}>
           <h4 className={styles.myChoiceTitle}>Мой выбор:</h4>
-          {/* <ul className={styles.chosenProductsList}>
-            {chosenProducts.map((product) => (
-              <li key={product.id} className={styles.chosenProduct}>
-                {product.name}
-              </li>
-            ))}
-          </ul> */}
           <ChosenProductList
             products={chosenProducts}
+            inputFocusHandler={setCurrenProduct}
             removeHandler={removeProduct}
           />
         </div>
       </Sidebar>
-      <nav className={styles.plate__switcher}>
-        <Button onClick={() => filterMeals('breakfast')}>Завтрак</Button>
-        <Button onClick={() => filterMeals('lunch')}>Обед</Button>
-        <Button onClick={() => filterMeals('dinner')}>Ужин</Button>
-      </nav>
-      {/* <Switcher config={} /> */}
+      <Switcher config={switcherConfig} />
       <PlateRoundel />
       <Measurement userValues={mockUserData} chosenValues={mealSummary} />
       <Sidebar title="Характеристики" mods="right">

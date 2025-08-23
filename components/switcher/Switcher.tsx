@@ -10,18 +10,23 @@ type SwitcherProps = {
 
 export const Switcher = ({ config }: SwitcherProps) => {
   return (
-    <menu className={styles.switcher}>
+    <ul className={styles.switcher}>
       {config.switcherItems.map((item) => (
-        <li key={item.value}>
+        <li
+          key={item.value}
+          className={styles['switcher__item']}
+          style={{ width: `${100 / config.switcherItems.length}%` }}
+        >
           <Button
+            mod={['wide', 'secondary']}
             onClick={() => {
-              item.handler(item.value);
+              item.switchHandler(item.value);
             }}
           >
             {item.text}
           </Button>
         </li>
       ))}
-    </menu>
+    </ul>
   );
 };

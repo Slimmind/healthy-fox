@@ -25,13 +25,14 @@ export const ProductCharacteristics = ({
             порцию в<strong>{updatedProduct.portionSize}</strong> грамм
           </p>
           <p className={styles['product-characteristics__item']}>
-            <strong>Белки:</strong> {updatedProduct.proteins} г.
+            <strong>Белки:</strong> {updatedProduct.proteins.toFixed(1)} г.
           </p>
           <p className={styles['product-characteristics__item']}>
-            <strong>Жиры:</strong> {updatedProduct.fats} г.
+            <strong>Жиры:</strong> {updatedProduct.fats.toFixed(1)} г.
           </p>
           <p className={styles['product-characteristics__item']}>
-            <strong>Углеводы:</strong> {updatedProduct.carbohydrates} г.
+            <strong>Углеводы:</strong>
+            {updatedProduct.carbohydrates.toFixed(1)} г.
           </p>
           <div className={styles['product-characteristics__column']}>
             <div className={styles['product-characteristics__list-wrap']}>

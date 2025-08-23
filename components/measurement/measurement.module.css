@@ -6,43 +6,43 @@
   overflow: hidden;
 }
 
-.userGraph {
+.measurement__user-graph {
   border-radius: var(--radius-main);
   overflow: hidden;
 }
 
-.userGraph,
-.chosenGraph {
+.measurement__user-graph,
+.measurement__chosen-graph {
   display: flex;
   width: 100%;
   height: calc(100% - 15px);
   align-items: flex-end;
 }
 
-.chosenGraph {
+.measurement__chosen-graph {
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-.userGraphColumn,
-.chosenGraphColumn,
-.graphTitlesColumn {
+.measurement__user-graph-item,
+.measurement__chosen-graph-item,
+.measurement__graph-titles-item {
   width: 25%;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.userGraphColumn {
+.measurement__user-graph-item {
   background-color: var(--color-blue-transparent);
 }
 
-.userGraphColumnOver {
+.measurement__user-graph-item--over {
   justify-content: flex-end;
 }
 
-.chosenGraphColumn {
+.measurement__chosen-graph-item {
   justify-content: center;
   box-shadow: inset 0 0 0 2px var(--color-blue-transparent);
   border-radius: var(--radius-main) var(--radius-main) 0 0;
@@ -57,15 +57,15 @@
   transition: height 0.3s;
 }
 
-.chosenGraphColumn:first-of-type {
+.measurement__chosen-graph-item:first-of-type {
   border-radius: var(--radius-main) var(--radius-main) 0 var(--radius-main);
 }
 
-.chosenGraphColumn:last-of-type {
+.measurement__chosen-graph-item:last-of-type {
   border-radius: var(--radius-main) var(--radius-main) var(--radius-main) 0;
 }
 
-.chosenGraphColumnOver {
+.measurement__chosen-graph-item--over {
   background: var(--color-red-transparent)
     repeating-linear-gradient(
       45deg,
@@ -78,7 +78,7 @@
   color: var(--color-red);
 }
 
-.chosenGraphColumnEnough {
+.measurement__chosen-graph-item--enough {
   background: var(--color-green-transparent)
     repeating-linear-gradient(
       45deg,
@@ -91,17 +91,36 @@
   color: var(--color-green);
 }
 
-.graphTitles {
+.measurement__graph-titles {
   width: 100%;
   display: flex;
+  gap: 10px;
 }
 
-.graphTitlesColumn {
+.measurement__graph-titles-item {
+  margin-bottom: 10px;
+  border: 2px solid;
+  border-radius: var(--radius-main);
+  color: var(--color-white);
   font-weight: 700;
 }
 
-.column {
-  width: 25%;
-  border: 1px dashed;
-  font-size: 12px;
+.measurement__graph-titles-item--calories {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.measurement__graph-titles-item--proteins {
+  border-color: var(--color-blue);
+  background-color: var(--color-blue);
+}
+
+.measurement__graph-titles-item--fats {
+  border-color: var(--color-violet);
+  background-color: var(--color-violet);
+}
+
+.measurement__graph-titles-item--carbohydrates {
+  border-color: var(--color-orange);
+  background-color: var(--color-orange);
 }
