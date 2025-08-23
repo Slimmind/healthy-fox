@@ -1,7 +1,7 @@
 export type SwitcherConfigItemType = {
   value: string;
   text: string;
-  handler: (value: string) => void;
+  switchHandler: (value: string) => void;
 };
 
 export type SwitcherConfigType = {

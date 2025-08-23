@@ -1,47 +1,86 @@
 .plate__roundel {
+  position: relative;
   display: flex;
   gap: 10px;
   height: 100%;
   max-height: 60vh;
   aspect-ratio: 1/1;
   margin-inline: auto;
-  background-color: var(--color-blue-light);
-  border: 10px solid var(--color-blue-light);
+  border: 10px solid var(--color-white);
+  box-shadow: 0 0 0 4px var(--color-main-transparent);
   border-radius: 50%;
   overflow: hidden;
 }
 
-.plate__roundel-section {
+.plate__roundel-section-wrap {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: calc(50% - 5px);
 }
 
-.plate__roundel-vegetables,
-.plate__roundel-proteins,
-.plate__roundel-carbohydrates {
-  border-radius: var(--radius-main);
+.plate__roundel-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   transition: opacity 0.3s;
+  cursor: pointer;
 }
 
-.plate__roundel-vegetables {
+.plate__roundel-section svg {
+  opacity: 0.7;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+
+.plate__roundel-section:hover svg {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.plate__roundel-section--vegetables {
   height: 100%;
   background-color: var(--color-green);
 }
 
-.plate__roundel-proteins {
+.plate__roundel-section--proteins {
   height: calc(50% - 5px);
-  background-color: var(--color-red);
+  background-color: var(--color-blue);
 }
 
-.plate__roundel-carbohydrates {
+.plate__roundel-section--carbohydrates {
   height: calc(50% - 5px);
-  background-color: var(--color-yellow);
+  background-color: var(--color-orange);
 }
 
-.plate__roundel-vegetables:hover,
-.plate__roundel-proteins:hover,
-.plate__roundel-carbohydrates:hover {
-  opacity: 0.8;
+.plate__roundel-section--fats {
+  position: absolute;
+  top: 33%;
+  left: 33%;
+  width: 34%;
+  aspect-ratio: 1/1;
+  background-color: var(--color-violet);
+  border: 10px solid var(--color-white);
+  border-radius: 50%;
+}
+
+.plate__roundel-section-content {
+  padding: 0 50px 0 0;
+  color: var(--color-white);
+  font-size: 12px;
+  text-align: center;
+}
+
+.plate__roundel-section-content-value,
+.plate__roundel-section-content-description {
+  display: block;
+}
+
+.plate__roundel-section-content-value {
+  font-size: 24px;
+}
+
+.plate__roundel-section--fats .plate__roundel-section-content {
+  padding: 0;
 }

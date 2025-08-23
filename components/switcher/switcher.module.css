@@ -4,3 +4,21 @@
   flex-wrap: nowrap;
   width: 100%;
 }
+
+.switcher__item {
+  list-style: none;
+}
+
+.switcher__item button {
+  border-radius: 0;
+}
+
+.switcher__item:first-of-type button {
+  border-radius: var(--radius-main) 0 0 var(--radius-main);
+  border-right-width: 0;
+}
+
+.switcher__item:last-of-type button {
+  border-radius: 0 var(--radius-main) var(--radius-main) 0;
+  border-left-width: 0;
+}
