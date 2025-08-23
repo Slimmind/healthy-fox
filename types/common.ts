@@ -1,10 +1,8 @@
 export type ProductType = {
   id: string;
   name: string;
-  mealTimes: Array<'breakfast' | 'lunch' | 'dinner' | 'snack'>;
-  preferredMealTimes: Array<
-    'when_ill' | 'morning' | 'afternoon' | 'evening' | 'night'
-  >;
+  mealTimes: string[];
+  preferredMealTimes: string[];
   calories: number;
   proteins: number;
   fats: number;
@@ -19,6 +17,7 @@ export type ProductType = {
   unit: string;
   unitValue: number;
   type: string;
+  mainCharacteristic: string[];
   allergens: string[];
   storage: string;
   category: string;
@@ -32,8 +31,8 @@ export type ProductType = {
     fridge: number;
     frozen: number;
   };
-  vitamins: Nutrient[];
-  minerals: Nutrient[];
+  vitamins: NutrientType[];
+  minerals: NutrientType[];
   countryOfOrigin: string;
   certifications: string[];
   tasteProfile: string[];
@@ -42,9 +41,7 @@ export type ProductType = {
   seasonality: string[];
 };
 
-export type MealType = 'breakfast' | 'lunch' | 'dinner' | 'drink';
-
-export type Nutrient = {
+export type NutrientType = {
   name: string;
   value: number;
 };

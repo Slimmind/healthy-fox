@@ -1,26 +1,26 @@
-import { Nutrient, ProductType } from '@/types/common';
+import { ProductType } from '@/types/common';
 
 export function recalculateProductCharacteristics(product: ProductType) {
-  const calories = (product.calories / product.unitValue) * product.portionSize;
-  const proteins = (product.proteins / product.unitValue) * product.portionSize;
-  const fats = (product.fats / product.unitValue) * product.portionSize;
-  const carbohydrates =
-    (product.carbohydrates / product.unitValue) * product.portionSize;
-  const fiber = (product.fiber / product.unitValue) * product.portionSize;
-  const sugars = (product.sugars / product.unitValue) * product.portionSize;
-  const sodium = (product.sodium / product.unitValue) * product.portionSize;
-  const cholesterol =
-    (product.cholesterol / product.unitValue) * product.portionSize;
-  const glycemicIndex =
-    (product.glycemicIndex / product.unitValue) * product.portionSize;
-  const vitamins = product.vitamins.map((item: Nutrient) => {
-    const [key, value] = Object.entries(item)[0] as [string, number];
-    return { [key]: (value / product.unitValue) * product.portionSize };
-  });
-  const minerals = product.minerals.map((item: Nutrient) => {
-    const [key, value] = Object.entries(item)[0] as [string, number];
-    return { [key]: (value / product.unitValue) * product.portionSize };
-  });
+  const ratio = product.portionSize / product.unitValue;
+
+  const calories = (product.calories * ratio).toFixed(1);
+  const proteins = (product.proteins * ratio).toFixed(1);
+  const fats = (product.fats * ratio).toFixed(1);
+  const carbohydrates = (product.carbohydrates * ratio).toFixed(1);
+  const fiber = (product.fiber * ratio).toFixed(1);
+  const sugars = (product.sugars * ratio).toFixed(1);
+  const sodium = (product.sodium * ratio).toFixed(1);
+  const cholesterol = (product.cholesterol * ratio).toFixed(1);
+
+  const vitamins = product.vitamins.map((item) => ({
+    name: item.name,
+    value: item.value * ratio,
+  }));
+
+  const minerals = product.minerals.map((item) => ({
+    name: item.name,
+    value: item.value * ratio,
+  }));
 
   return {
     ...product,
@@ -32,7 +32,6 @@ export function recalculateProductCharacteristics(product: ProductType) {
     sugars,
     sodium,
     cholesterol,
-    glycemicIndex,
     vitamins,
     minerals,
   };
