@@ -10,6 +10,7 @@ textarea {
   font-size: 18px;
   outline: none;
   resize: none;
+  appearance: none;
 }
 
 input::placeholder,

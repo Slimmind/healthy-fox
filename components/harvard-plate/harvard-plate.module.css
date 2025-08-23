@@ -1,18 +1,17 @@
 .plate {
   display: grid;
-  grid-template-areas:
-    "sidebar-left switcher sidebar-right"
-    "sidebar-left roundel sidebar-right"
-    "sidebar-left measurement sidebar-right";
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto 2fr 1fr;
+  grid:
+    'sidebar-left switcher      sidebar-right' auto
+    'sidebar-left roundel       sidebar-right' 2fr
+    'sidebar-left measurement   sidebar-right' 1fr
+    / 1fr 2fr 1fr;
   height: calc(100dvh - 100px);
   gap: 10px;
   padding: 10px;
 }
 
 .plate__sidebar {
-  background-color: rgba(0, 100, 100, .2);
+  background-color: rgba(0, 100, 100, 20%);
 }
 
 .plate__sidebar--left {
@@ -21,38 +20,6 @@
 
 .plate__sidebar--right {
   grid-area: sidebar-right;
-}
-
-.plate__switcher {
-  grid-area: switcher;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.meal {
-  padding: 10px;
-  background-color: var(--color-gray-light);
-  border-radius: var(--radius-main);
-  cursor: pointer;
-  transition: background-color .3s;
-}
-
-.meal:hover,
-.mar:focus-visible {
-  background-color: var(--color-gray);
-}
-
-.productsList {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  height: calc(50% - 10px);
-  max-height: calc(50% - 10px);
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--color-gray-light);
-  overflow-y: auto;
 }
 
 .myChoice {
@@ -65,10 +32,6 @@
 .myChoiceTitle {
   padding: 10px;
   text-align: center;
-}
-
-.chosenProductsList {
-
 }
 
 .chosenProduct {

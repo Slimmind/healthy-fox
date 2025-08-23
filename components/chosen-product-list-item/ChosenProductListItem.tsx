@@ -8,11 +8,13 @@ import styles from './chosen-product-list-item.module.css';
 
 type ChosenProductItemProps = {
   product: ProductType;
+  inputFocusHandler: (product: ProductType) => void;
   removeHandler: (productId: string) => void;
 };
 
 export const ChosenProductListItem = ({
   product,
+  inputFocusHandler,
   removeHandler,
 }: ChosenProductItemProps) => {
   return (
@@ -29,9 +31,11 @@ export const ChosenProductListItem = ({
       </span>
       <Input
         className={styles['chosen-product-list__item-input']}
-        type="number"
+        type="text"
         name={product.name}
         value={product.portionSize}
+        onFocus={() => inputFocusHandler(product)}
+        pattern="[0-9]*"
       />
     </li>
   );

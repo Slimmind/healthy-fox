@@ -17,13 +17,13 @@ export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
 
     const getPercentage = (): number => {
       if (user <= chosen) {
-        return 100;
+        return 95;
       }
 
-      return (chosen / user) * 100;
+      return (chosen / user) * 95;
     };
 
-    return `${Math.max(0, Math.min(getPercentage(), 100))}%`;
+    return `${chosen > 0 ? Math.max(5, Math.min(getPercentage(), 100)) : 0}%`;
   };
 
   const getPercentage = (chosenValue: number, userValue: number): number => {
@@ -52,23 +52,29 @@ export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
 
   return (
     <div className={styles.measurement}>
-      <ul className={styles.graphTitles}>
+      <ul className={styles['measurement__graph-titles']}>
         {Object.keys(userValues).map((title) => (
-          <li key={title} className={styles.graphTitlesColumn}>
+          <li
+            key={title}
+            className={`
+              ${styles['measurement__graph-titles-item']}
+              ${styles['measurement__graph-titles-item' + '--' + title]}
+            `}
+          >
             {title}
           </li>
         ))}
       </ul>
 
-      <ul className={styles.userGraph}>
+      <ul className={styles['measurement__user-graph']}>
         {Object.entries(userValues).map(([key, value]) => {
           const height = getUserHeight(key as keyof MeasurementDataType);
           const isOver = shouldHighlightRed(key as keyof MeasurementDataType);
           return (
             <li
               key={key}
-              className={`${styles.userGraphColumn} ${
-                isOver ? styles.userGraphColumnOver : ''
+              className={`${styles['measurement__user-graph-item']} ${
+                isOver ? styles['measurement__user-graph-item--over'] : ''
               }`}
               style={{ height: height }}
             >
@@ -78,7 +84,7 @@ export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
         })}
       </ul>
 
-      <ul className={styles.chosenGraph}>
+      <ul className={styles['measurement__chosen-graph']}>
         {Object.entries(chosenValues).map(([key, value]) => {
           const height = getChosenHeight(key as keyof MeasurementDataType);
           const isOver = shouldHighlightRed(key as keyof MeasurementDataType);
@@ -89,12 +95,17 @@ export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
           return (
             <li
               key={key}
-              className={`${styles.chosenGraphColumn} ${
-                isOver ? styles.chosenGraphColumnOver : ''
-              } ${isEnough ? styles.chosenGraphColumnEnough : ''}}`}
+              className={`
+                ${styles['measurement__chosen-graph-item']}
+                ${isOver ? styles['measurement__chosen-graph-item--over'] : ''}
+                ${
+                  isEnough ? styles['measurement__chosen-graph--enough'] : ''
+                }}`}
               style={{ height: height }}
             >
-              <b className={styles.choseGraphColumnValue}>{value || ''}</b>
+              <b className={styles['measurement__chosen-graph-item-value']}>
+                {value || ''}
+              </b>
             </li>
           );
         })}
