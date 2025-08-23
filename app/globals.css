@@ -28,7 +28,7 @@
   --border-width-main: 2px;
   --background: #fff;
   --foreground: #171717;
-  --shadow: 0 0 6px 0 var(--color-main-transparent);
+  --shadow: 0 0 10px 0 var(--color-main-transparent);
 }
 
 @media (prefers-color-scheme: light) {
