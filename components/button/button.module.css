@@ -22,7 +22,7 @@
 
 .button:hover,
 .button:focus-visible {
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); */
   background-color: var(--color-white);
   color: var(--color-main);
 }

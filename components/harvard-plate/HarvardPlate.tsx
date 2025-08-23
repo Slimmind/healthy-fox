@@ -3,13 +3,14 @@
 import { useEffect, useState } from 'react';
 
 import meals from '@/meals.json';
-import { Nutrient, ProductType } from '@/types/common';
+import { ProductType } from '@/types/common';
 import { MeasurementDataType } from '@/types/measurement';
 
 import Button from '../button';
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
 import PlateRoundel from '../plate-roundel';
+import ProductCharacteristics from '../product-characteristics';
 import Sidebar from '../sidebar';
 // import Switcher from '../switcher';
 
@@ -37,20 +38,23 @@ export const HarvardPlate = () => {
     useState<MeasurementDataType>(initialMealSummary);
 
   const filterMeals = (mealTime: string): void => {
-    const filteredMeals = meals.filter(
-      (meal) =>
-        (meal.mealTimes.includes(mealTime) && meal.category === 'food') ||
-        meal.category.includes(mealTime)
+    const filteredMeals = meals.filter((meal) =>
+      meal.mealTimes.includes(mealTime)
     );
     setProductsList(filteredMeals);
   };
 
   const removeProduct = (productId: string): void => {
     const productToRemove = chosenProducts.find(({ id }) => id === productId);
+
+    if (!productToRemove) return;
+
     const updatedChosenProduct = chosenProducts.filter(
       (product) => product.id !== productId
     );
+
     const updatedProductsList = [productToRemove, ...productsList];
+
     setChosenProducts(updatedChosenProduct);
     setProductsList(updatedProductsList);
   };
@@ -141,58 +145,7 @@ export const HarvardPlate = () => {
       <PlateRoundel />
       <Measurement userValues={mockUserData} chosenValues={mealSummary} />
       <Sidebar title="Характеристики" mods="right">
-        {currenProduct && (
-          <>
-            <p className={styles.characteristicTitle}>
-              <strong>
-                <em>{currenProduct.name}</em>
-              </strong>
-            </p>
-            <p className={styles.characteristic}>
-              <strong>Калорийность:</strong> {currenProduct.calories} ккал{' '}
-              {currenProduct.unit}
-            </p>
-            <p className={styles.characteristic}>
-              <strong>Белки:</strong> {currenProduct.proteins} г.
-            </p>
-            <p className={styles.characteristic}>
-              <strong>Жиры:</strong> {currenProduct.fats} г.
-            </p>
-            <p className={styles.characteristic}>
-              <strong>Углеводы:</strong> {currenProduct.carbohydrates} г.
-            </p>
-            <p className={styles.characteristic}>
-              <strong>Витамины:</strong>
-            </p>
-            {currenProduct.vitamins.map((vitamin: Nutrient) => {
-              const [key, value] = Object.entries(vitamin)[0] as [
-                string,
-                number,
-              ];
-              return (
-                <p key={key} className={styles.characteristic}>
-                  <strong>{key}:</strong> {value}
-                </p>
-              );
-            })}
-            <p className={styles.characteristic}>
-              <strong>Минералы:</strong>
-            </p>
-            {currenProduct.minerals.map((mineral: Nutrient) => {
-              const [key, value] = Object.entries(mineral)[0] as [
-                string,
-                number,
-              ];
-              return (
-                <p key={key} className={styles.characteristic}>
-                  <strong>{key}:</strong> {value}
-                </p>
-              );
-            })}
-            <p className={styles.characteristic}>{currenProduct.description}</p>
-            <p className={styles.characteristic}>{currenProduct.storage}</p>
-          </>
-        )}
+        {currenProduct && <ProductCharacteristics product={currenProduct} />}
       </Sidebar>
     </div>
   );
