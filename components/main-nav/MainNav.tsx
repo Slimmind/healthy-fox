@@ -1,7 +1,7 @@
 import NavLink from '@/components/nav-link';
 import { mainNavConfig } from '@/configs/main-nav.config';
 
-import styles from './mainNav.module.css';
+import styles from './main-nav.module.css';
 
 export const MainNav = () => {
   return (
