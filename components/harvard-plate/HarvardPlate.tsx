@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
+import { useMealSummary } from '@/hooks/use-meal-summary';
 import { ProductType } from '@/types/common';
-import { MeasurementDataType } from '@/types/measurement';
 
-// import Button from '../button';
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
 import PlateRoundel from '../plate-roundel';
@@ -16,13 +15,6 @@ import Switcher from '../switcher';
 
 import styles from './harvard-plate.module.css';
 import { createSwitcherConfig } from './switcher.config';
-
-const initialMealSummary = {
-  calories: 0,
-  proteins: 0,
-  fats: 0,
-  carbohydrates: 0,
-};
 
 const mockUserData = {
   calories: 2000,
@@ -36,8 +28,8 @@ export const HarvardPlate = () => {
   const [currenProduct, setCurrenProduct] = useState<ProductType | null>(null);
   const [chosenProducts, setChosenProducts] = useState<ProductType[]>([]);
   const [mealTime, setMealTime] = useState<string>('');
-  const [mealSummary, setMealSummary] =
-    useState<MeasurementDataType>(initialMealSummary);
+
+  const mealSummary = useMealSummary(chosenProducts);
 
   const switcherConfig = createSwitcherConfig(
     productsList,
@@ -69,44 +61,13 @@ export const HarvardPlate = () => {
     setChosenProducts([...chosenProducts, currentProduct]);
   };
 
-  useEffect(() => {
-    const totalCalories = Math.round(
-      chosenProducts.reduce(
-        (acc, product) =>
-          acc + (product.calories / product.unitValue) * product.portionSize,
-        0
-      )
-    );
-    const totalProteins = Math.round(
-      chosenProducts.reduce(
-        (acc, product) =>
-          acc + (product.proteins / product.unitValue) * product.portionSize,
-        0
-      )
-    );
-    const totalFats = Math.round(
-      chosenProducts.reduce(
-        (acc, product) =>
-          acc + (product.fats / product.unitValue) * product.portionSize,
-        0
-      )
-    );
-    const totalCarbohydrates = Math.round(
-      chosenProducts.reduce(
-        (acc, product) =>
-          acc +
-          (product.carbohydrates / product.unitValue) * product.portionSize,
-        0
-      )
+  const filterProductsByNutritionalValue = (value: string) => {
+    const filteredProducts = productsList.filter((product) =>
+      product.mainCharacteristic.includes(value)
     );
 
-    setMealSummary({
-      calories: totalCalories,
-      proteins: totalProteins,
-      fats: totalFats,
-      carbohydrates: totalCarbohydrates,
-    });
-  }, [chosenProducts]);
+    setProductsList(filteredProducts);
+  };
 
   return (
     <div className={styles.plate}>
@@ -125,7 +86,7 @@ export const HarvardPlate = () => {
         </div>
       </Sidebar>
       <Switcher config={switcherConfig} />
-      <PlateRoundel />
+      <PlateRoundel filterHandler={filterProductsByNutritionalValue} />
       <Measurement userValues={mockUserData} chosenValues={mealSummary} />
       <Sidebar title="Характеристики" mods="right">
         {currenProduct && <ProductCharacteristics product={currenProduct} />}
