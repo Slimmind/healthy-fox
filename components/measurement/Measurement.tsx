@@ -10,7 +10,6 @@ type MeasurementProps = {
 };
 
 export const Measurement = ({ userValues, chosenValues }: MeasurementProps) => {
-  // const normalValue = 60;
   const getChosenHeight = (key: keyof MeasurementDataType): string => {
     const user = userValues[key];
     const chosen = chosenValues[key];

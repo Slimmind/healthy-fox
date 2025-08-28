@@ -1,15 +1,18 @@
+import { memo } from 'react';
+
 import CarbohydratesIcon from '@/icons/carbohydrates-icon';
 import FatsIcon from '@/icons/fats-icon';
 import ProteinsIcon from '@/icons/proteins-icon';
 import VegetablesIcon from '@/icons/vegetables-icon';
+import { NutritionalCharacteristic } from '@/types/common';
 
 import styles from './plate-roundel.module.css';
 
 type PlateRoundelProps = {
-  filterHandler: (type: string) => void;
+  onFilter: (type: NutritionalCharacteristic) => void;
 };
 
-export const PlateRoundel = ({ filterHandler }: PlateRoundelProps) => {
+export const PlateRoundel = memo(({ onFilter }: PlateRoundelProps) => {
   return (
     <div className={styles['plate__roundel']}>
       <div className={styles['plate__roundel-section-wrap']}>
@@ -18,7 +21,7 @@ export const PlateRoundel = ({ filterHandler }: PlateRoundelProps) => {
             ${styles['plate__roundel-section']}
             ${styles['plate__roundel-section--vegetables']}
           `}
-          onClick={() => filterHandler('fiber')}
+          onClick={() => onFilter(NutritionalCharacteristic.Fiber)}
         >
           <div className={styles['plate__roundel-section-content']}>
             <VegetablesIcon />
@@ -39,7 +42,7 @@ export const PlateRoundel = ({ filterHandler }: PlateRoundelProps) => {
             ${styles['plate__roundel-section']}
             ${styles['plate__roundel-section--proteins']}
           `}
-          onClick={() => filterHandler('proteins')}
+          onClick={() => onFilter(NutritionalCharacteristic.Proteins)}
         >
           <div className={styles['plate__roundel-section-content']}>
             <ProteinsIcon />
@@ -58,7 +61,7 @@ export const PlateRoundel = ({ filterHandler }: PlateRoundelProps) => {
             ${styles['plate__roundel-section']}
             ${styles['plate__roundel-section--carbohydrates']}
           `}
-          onClick={() => filterHandler('carbohydrates')}
+          onClick={() => onFilter(NutritionalCharacteristic.Carbohydrates)}
         >
           <div className={styles['plate__roundel-section-content']}>
             <CarbohydratesIcon />
@@ -81,7 +84,7 @@ export const PlateRoundel = ({ filterHandler }: PlateRoundelProps) => {
       >
         <div
           className={styles['plate__roundel-section-content']}
-          onClick={() => filterHandler('fats')}
+          onClick={() => onFilter(NutritionalCharacteristic.Fats)}
         >
           <FatsIcon />
           <strong className={styles['plate__roundel-section-content-value']}>
@@ -91,4 +94,6 @@ export const PlateRoundel = ({ filterHandler }: PlateRoundelProps) => {
       </div>
     </div>
   );
-};
+});
+
+PlateRoundel.displayName = 'PlateRoundel';

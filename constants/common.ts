@@ -1,7 +1,9 @@
+import { MealTime } from '@/types/common';
+
 export const MealTimesTitle = {
-  breakfast: 'Завтрак',
-  lunch: 'Обед',
-  dinner: 'Ужин',
+  [MealTime.Breakfast]: 'Завтрак',
+  [MealTime.Lunch]: 'Обед',
+  [MealTime.Dinner]: 'Ужин',
 };
 
 export const MealCategories = {
