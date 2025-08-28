@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { initialMealSummary } from '@/constants/harvard-plate';
-import { ProductType } from '@/types/common';
+import { type NutritionField, type ProductType } from '@/types/common';
 import { MeasurementDataType } from '@/types/measurement';
 
 export const useMealSummary = (
@@ -11,9 +11,7 @@ export const useMealSummary = (
     useState<MeasurementDataType>(initialMealSummary);
 
   useEffect(() => {
-    const calculate = (
-      field: 'calories' | 'proteins' | 'fats' | 'portionSize' | 'carbohydrates'
-    ) =>
+    const calculate = (field: NutritionField) =>
       Math.round(
         chosenProducts.reduce(
           (acc, product) =>

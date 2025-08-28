@@ -1,16 +1,12 @@
-import { MealTimesTitle } from '@/constants/common';
 import meals from '@/meals.json';
-import { ProductType } from '@/types/common';
+import { type MealTime, type ProductType } from '@/types/common';
 
 export const filterProductsByMealTime = (
-  mealTime: 'breakfast' | 'lunch' | 'dinner',
-  updateProducts: (products: ProductType[]) => void,
-  updateMealTime: (mealTime: string) => void
+  mealTime: MealTime,
+  updateProducts: (products: ProductType[]) => void
 ): void => {
-  const filteredMeals = meals.filter(
-    (meal) =>
-      meal.mealTimes.includes(mealTime) || meal.category.includes(mealTime)
-  );
+  const filteredMeals = meals.filter((meal) =>
+    meal.mealTimes.includes(mealTime)
+  ) as ProductType[];
   updateProducts(filteredMeals);
-  updateMealTime(MealTimesTitle[mealTime] || 'Продукты');
 };

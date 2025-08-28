@@ -36,7 +36,6 @@ export default function getMod(
   mods?: string | string[]
 ): string[] {
   const modList = !mods ? [] : typeof mods === 'string' ? [mods] : mods;
-
   return modList
     .filter(Boolean)
     .map((mod) => styles[`${block}--${mod}`])

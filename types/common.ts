@@ -1,3 +1,16 @@
+export enum NutritionalCharacteristic {
+  Fiber = 'fiber',
+  Carbohydrates = 'carbohydrates',
+  Proteins = 'proteins',
+  Fats = 'fats',
+}
+
+export enum MealTime {
+  Breakfast = 'breakfast',
+  Lunch = 'lunch',
+  Dinner = 'dinner',
+}
+
 export type ProductType = {
   id: string;
   name: string;
@@ -17,7 +30,7 @@ export type ProductType = {
   unit: string;
   unitValue: number;
   type: string;
-  mainCharacteristic: string[];
+  mainCharacteristic: NutritionalCharacteristic[];
   allergens: string[];
   storage: string;
   category: string;
@@ -50,3 +63,10 @@ export type MainNavLink = {
   text: string;
   url: string;
 };
+
+export type NutritionField =
+  | 'calories'
+  | 'proteins'
+  | 'fats'
+  | 'carbohydrates'
+  | 'portionSize';

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { SwitcherConfigType } from '@/types/switcher';
 
 import Button from '../button';
@@ -8,14 +10,15 @@ type SwitcherProps = {
   config: SwitcherConfigType;
 };
 
-export const Switcher = ({ config }: SwitcherProps) => {
+export const Switcher = memo(({ config }: SwitcherProps) => {
+  const itemWidth = `${100 / config.length}%`;
   return (
     <ul className={styles.switcher}>
-      {config.switcherItems.map((item) => (
+      {config.map((item) => (
         <li
           key={item.value}
           className={styles['switcher__item']}
-          style={{ width: `${100 / config.switcherItems.length}%` }}
+          style={{ width: itemWidth }}
         >
           <Button
             mod={['wide', 'secondary']}
@@ -29,4 +32,6 @@ export const Switcher = ({ config }: SwitcherProps) => {
       ))}
     </ul>
   );
-};
+});
+
+Switcher.displayName = 'Switcher';

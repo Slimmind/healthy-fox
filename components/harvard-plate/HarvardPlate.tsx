@@ -1,9 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
+import { MealTimesTitle } from '@/constants/common';
 import { useMealSummary } from '@/hooks/use-meal-summary';
-import { ProductType } from '@/types/common';
+import {
+  MealTime,
+  NutritionalCharacteristic,
+  ProductType,
+} from '@/types/common';
+import { SwitcherConfigItemType } from '@/types/switcher';
+import { filterProductsByMealTime } from '@/utils/filter-products';
 
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
@@ -14,9 +21,8 @@ import Sidebar from '../sidebar';
 import Switcher from '../switcher';
 
 import styles from './harvard-plate.module.css';
-import { createSwitcherConfig } from './switcher.config';
 
-const mockUserData = {
+const MOCK_USER_DATA = {
   calories: 2000,
   proteins: 240,
   fats: 180,
@@ -25,71 +31,110 @@ const mockUserData = {
 
 export const HarvardPlate = () => {
   const [productsList, setProductsList] = useState<ProductType[]>([]);
-  const [currenProduct, setCurrenProduct] = useState<ProductType | null>(null);
+  const [currentProduct, setCurrentProduct] = useState<ProductType | null>(
+    null
+  );
   const [chosenProducts, setChosenProducts] = useState<ProductType[]>([]);
-  const [mealTime, setMealTime] = useState<string>('');
 
   const mealSummary = useMealSummary(chosenProducts);
 
-  const switcherConfig = createSwitcherConfig(
-    productsList,
-    setProductsList,
-    setMealTime
+  const mealTimeSwitcherConfig: SwitcherConfigItemType[] = useMemo(
+    () =>
+      Object.values(MealTime).map((mealTime) => ({
+        value: mealTime,
+        text: MealTimesTitle[mealTime],
+        switchHandler: () =>
+          filterProductsByMealTime(mealTime, setProductsList),
+      })),
+    []
   );
 
-  const removeProduct = (productId: string): void => {
-    const productToRemove = chosenProducts.find(({ id }) => id === productId);
+  const removeProduct = useCallback((productId: string): void => {
+    setChosenProducts((prevChosen) => {
+      const productToRemove = prevChosen.find(({ id }) => id === productId);
+      if (!productToRemove) return prevChosen;
 
-    if (!productToRemove) return;
+      setProductsList((prevList) => {
+        const isAlreadyExists = prevList.some(
+          (product) => product.id === productId
+        );
+        if (!isAlreadyExists) {
+          return [productToRemove, ...prevList];
+        }
+        return prevList;
+      });
 
-    const updatedChosenProduct = chosenProducts.filter(
-      (product) => product.id !== productId
-    );
+      return prevChosen.filter((product) => product.id !== productId);
+    });
+  }, []);
 
-    const updatedProductsList = [productToRemove, ...productsList];
+  const handleProductSelect = useCallback(
+    (selectedProduct: ProductType): void => {
+      setProductsList((prevList) =>
+        prevList.filter((product) => product.id !== selectedProduct.id)
+      );
 
-    setChosenProducts(updatedChosenProduct);
-    setProductsList(updatedProductsList);
-  };
+      setCurrentProduct(selectedProduct);
+      setChosenProducts((prevChosen) => [...prevChosen, selectedProduct]);
+    },
+    []
+  );
 
-  const currentProductClickHandler = (currentProduct: ProductType): void => {
-    const updatedProductsList = productsList.filter(
-      (productFromList: ProductType) => productFromList.id !== currentProduct.id
-    );
-    setProductsList(updatedProductsList);
-    setCurrenProduct(currentProduct);
-    setChosenProducts([...chosenProducts, currentProduct]);
-  };
+  const filterProductsByNutritionalValue = useCallback(
+    (value: NutritionalCharacteristic) => {
+      setProductsList((prevList) =>
+        prevList.filter((product) => product.mainCharacteristic.includes(value))
+      );
+    },
+    []
+  );
 
-  const filterProductsByNutritionalValue = (value: string) => {
-    const filteredProducts = productsList.filter((product) =>
-      product.mainCharacteristic.includes(value)
-    );
+  const changePortionSize = useCallback(
+    (value: string): void => {
+      if (!currentProduct) return;
 
-    setProductsList(filteredProducts);
-  };
+      const updatedProduct = {
+        ...currentProduct,
+        portionSize: Number(value) || 0,
+      };
+
+      setCurrentProduct(updatedProduct);
+
+      setChosenProducts((prevChosen) =>
+        prevChosen.map((product) =>
+          product.id === updatedProduct.id ? updatedProduct : product
+        )
+      );
+    },
+    [currentProduct]
+  );
+
+  const handleInputFocus = useCallback((product: ProductType) => {
+    setCurrentProduct(product);
+  }, []);
 
   return (
     <div className={styles.plate}>
-      <Sidebar title={`${mealTime || 'Продукты'}`} mods="left">
+      <Sidebar mod="left">
         <ProductList
           products={productsList}
-          choseProductHandler={currentProductClickHandler}
+          onProductSelect={handleProductSelect}
         />
-        <div className={styles.myChoice}>
-          <h4 className={styles.myChoiceTitle}>Мой выбор:</h4>
-          <ChosenProductList
-            products={chosenProducts}
-            inputFocusHandler={setCurrenProduct}
-            removeHandler={removeProduct}
-          />
-        </div>
+
+        <ChosenProductList
+          products={chosenProducts}
+          onInputFocus={handleInputFocus}
+          onRemove={removeProduct}
+          onPortionChange={changePortionSize}
+        />
       </Sidebar>
-      <Switcher config={switcherConfig} />
-      <PlateRoundel filterHandler={filterProductsByNutritionalValue} />
-      <Measurement userValues={mockUserData} chosenValues={mealSummary} />
-      <Sidebar title="Характеристики" mods="right">
-        {currenProduct && <ProductCharacteristics product={currenProduct} />}
+
+      <Switcher config={mealTimeSwitcherConfig} />
+      <PlateRoundel onFilter={filterProductsByNutritionalValue} />
+      <Measurement userValues={MOCK_USER_DATA} chosenValues={mealSummary} />
+
+      <Sidebar mod="right">
+        <ProductCharacteristics product={currentProduct} />
       </Sidebar>
     </div>
   );
