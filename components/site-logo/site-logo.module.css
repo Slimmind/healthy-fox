@@ -1,8 +1,8 @@
-.siteLogo {
+.site-logo {
   display: block;
 }
 
-.image {
+.site-logo__image {
   width: 30px;
   height: 30px;
   display: inline-block;

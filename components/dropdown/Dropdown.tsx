@@ -1,6 +1,9 @@
+'use client';
+
 import clsx from 'clsx';
 import { PropsWithChildren, useState } from 'react';
-import './dropdown.styles.css';
+
+import styles from './dropdown.module.css';
 
 type DropdownProps = {
   title: string;
@@ -16,10 +19,14 @@ export const Dropdown = ({ title, children }: DropdownProps) => {
 
   return (
     <section className={classes}>
-      <h5 className="dropdown__title" role="button" onClick={toggleDropdown}>
+      <h5
+        className={styles['dropdown__title']}
+        role="button"
+        onClick={toggleDropdown}
+      >
         {title}
       </h5>
-      <div className="dropdown__body">{children}</div>
+      <div className={styles['dropdown__body']}>{children}</div>
     </section>
   );
 };
