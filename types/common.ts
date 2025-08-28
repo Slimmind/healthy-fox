@@ -46,3 +46,8 @@ export type Nutrient = {
   name: string;
   value: number;
 };
+
+export type MainNavLink = {
+  text: string;
+  url: string;
+};
