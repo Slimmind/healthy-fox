@@ -1,7 +1,4 @@
-type MainNavLink = {
-  text: string;
-  url: string;
-};
+import { type MainNavLink } from '@/types/common';
 
 export const mainNavConfig: MainNavLink[] = [
   {
