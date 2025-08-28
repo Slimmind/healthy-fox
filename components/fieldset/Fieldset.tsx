@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
-import './fieldset.styles.css';
+
+import styles from './fieldset.module.css';
 
 type FieldsetProps = {
   title?: string;
@@ -7,9 +8,9 @@ type FieldsetProps = {
 
 export const Fieldset = ({ children, title }: FieldsetProps) => {
   return (
-    <fieldset className="fieldset">
+    <fieldset className={styles.fieldset}>
       {title && <legend>{title}</legend>}
-      <div className="fieldset__content">{children}</div>
+      <div className={styles['fieldset__content']}>{children}</div>
     </fieldset>
   );
 };

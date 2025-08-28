@@ -7,9 +7,9 @@ import styles from './site-logo.module.css';
 
 export const SiteLogo = () => {
   return (
-    <Link className={styles.siteLogo} href="/" aria-label="site logo">
+    <Link className={styles['site-logo']} href="/" aria-label="site logo">
       <Image
-        className={styles.image}
+        className={styles['site-logo__image']}
         src={logoImg}
         alt="A plate with food on it"
         priority
