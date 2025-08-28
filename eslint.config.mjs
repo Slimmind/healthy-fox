@@ -63,7 +63,12 @@ export default [
           pathGroupsExcludedImportTypes: ['builtin'],
         },
       ],
-      'max-len': ['error', { code: 80, ignoreComments: true, ignoreUrls: true }],
+      'max-len': ['error', {
+        code: 80,
+        ignoreComments: true,
+        ignoreUrls: true,
+        ignorePattern: '^import\\s.+\\sfrom\\s.+;'
+      }],
       'func-call-spacing': ['error', 'never'],
 
       'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }], // One prop per line for multiline JSX
