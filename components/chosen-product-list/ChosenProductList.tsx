@@ -1,30 +1,72 @@
+import clsx from 'clsx';
+import Link from 'next/link';
+import { memo, useCallback } from 'react';
+
 import { ProductType } from '@/types/common';
 
+import Button from '../button';
 import ChosenProductListItem from '../chosen-product-list-item';
 
 import styles from './chosen-product-list.module.css';
 
 type ChosenProductListProps = {
   products: ProductType[];
-  inputFocusHandler: (product: ProductType) => void;
-  removeHandler: (productId: string) => void;
+  onInputFocus: (product: ProductType) => void;
+  onRemove: (productId: string) => void;
+  onPortionChange: (value: string) => void;
 };
 
-export const ChosenProductList = ({
-  products = [],
-  inputFocusHandler,
-  removeHandler,
-}: ChosenProductListProps) => {
-  return (
-    <ul className={styles['chosen-product-list']}>
-      {products.map((product) => (
-        <ChosenProductListItem
-          key={product.id}
-          product={product}
-          inputFocusHandler={() => inputFocusHandler(product)}
-          removeHandler={() => removeHandler(product.id)}
-        />
-      ))}
-    </ul>
-  );
-};
+export const ChosenProductList = memo(
+  ({
+    products,
+    onInputFocus,
+    onRemove,
+    onPortionChange,
+  }: ChosenProductListProps) => {
+    const isListEmpty = products.length === 0;
+    const createInputFocusHandler = useCallback(
+      (product: ProductType) => () => {
+        onInputFocus(product);
+      },
+      [onInputFocus]
+    );
+
+    const createRemoveHandler = useCallback(
+      (productId: string) => () => {
+        onRemove(productId);
+      },
+      [onRemove]
+    );
+
+    return (
+      <div
+        className={clsx(styles['chosen-product-list'], {
+          [styles['chosen-product-list--empty']]: isListEmpty,
+        })}
+        data-products-quantity={products.length}
+      >
+        <h3 className={styles['chosen-product-list__title']}>Мой выбор</h3>
+        <ul className={styles['chosen-product-list__list']}>
+          {products.map((product) => (
+            <ChosenProductListItem
+              key={product.id}
+              product={product}
+              onInputFocus={createInputFocusHandler(product)}
+              onRemove={createRemoveHandler(product.id)}
+              onPortionChange={onPortionChange}
+            />
+          ))}
+          {!isListEmpty && (
+            <li className={styles['chosen-product-list__redirect']}>
+              <Link href="/healthy-recipes">
+                <Button mod={['wide', 'secondary']}>Перейти к рецептам</Button>
+              </Link>
+            </li>
+          )}
+        </ul>
+      </div>
+    );
+  }
+);
+
+ChosenProductList.displayName = 'ChosenProductList';

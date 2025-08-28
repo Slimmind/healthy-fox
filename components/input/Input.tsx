@@ -17,6 +17,9 @@ type InputProps = {
   description?: string;
   errorMessage?: string;
   disabled?: boolean;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 } & InputHTMLAttributes<HTMLInputElement> &
   TextareaHTMLAttributes<HTMLTextAreaElement> &
   PropsWithChildren;

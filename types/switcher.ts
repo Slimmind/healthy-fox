@@ -4,6 +4,4 @@ export type SwitcherConfigItemType = {
   switchHandler: (value: string) => void;
 };
 
-export type SwitcherConfigType = {
-  switcherItems: SwitcherConfigItemType[];
-};
+export type SwitcherConfigType = SwitcherConfigItemType[];

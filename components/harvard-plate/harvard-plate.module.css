@@ -21,36 +21,3 @@
 .plate__sidebar--right {
   grid-area: sidebar-right;
 }
-
-.myChoice {
-  height: calc(50% - 10px);
-  max-height: calc(50% - 10px);
-  background-color: var(--color-gray-light);
-  border-radius: var(--radius-main);
-}
-
-.myChoiceTitle {
-  padding: 10px;
-  text-align: center;
-}
-
-.chosenProduct {
-  padding: 5px 10px;
-  border-bottom: 1px solid var(--color-gray);
-  font-size: 12px;
-}
-
-.characteristic {
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--color-gray-light);
-  font-size: 12px;
-}
-
-.characteristicTitle {
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: var(--color-gray-light);
-  border: 0;
-  border-radius: var(--radius-main);
-}

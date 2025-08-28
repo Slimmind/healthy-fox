@@ -11,6 +11,10 @@
 
 .switcher__item button {
   border-radius: 0;
+  transition:
+    background-color 0.3s,
+    border-color 1s,
+    color 0.3s;
 }
 
 .switcher__item:first-of-type button {
@@ -21,4 +25,8 @@
 .switcher__item:last-of-type button {
   border-radius: 0 var(--radius-main) var(--radius-main) 0;
   border-left-width: 0;
+}
+
+.switcher:hover .switcher__item button {
+  border-color: var(--color-main);
 }

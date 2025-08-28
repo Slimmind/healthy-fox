@@ -1,37 +1,40 @@
+import clsx from 'clsx';
+import { memo } from 'react';
+
 import { ProductType } from '@/types/common';
+
+import ProductListItem from '../product-list-item';
 
 import styles from './product-list.module.css';
 
 type ProductListProps = {
   products: ProductType[];
-  choseProductHandler: (chosenProduct: ProductType) => void;
+  onProductSelect: (chosenProduct: ProductType) => void;
 };
 
-export const ProductList = ({
-  products,
-  choseProductHandler,
-}: ProductListProps) => {
-  return (
-    <ul className={styles['product-list']}>
-      {products.map((product) => (
-        <li
-          key={product.id}
-          className={styles['product-list__item']}
-          onClick={() => choseProductHandler(product)}
-        >
-          <div className={styles['product-list__markers']}>
-            {product.mainCharacteristic.map((characteristic) => (
-              <div
-                key={characteristic}
-                className={`
-                  ${styles['product-list__marker']}
-                  ${styles[`product-list__marker--${characteristic}`]}`}
-              ></div>
-            ))}
-          </div>
-          <strong>{product.name}</strong>
-        </li>
-      ))}
-    </ul>
-  );
-};
+export const ProductList = memo(
+  ({ products, onProductSelect }: ProductListProps) => {
+    const isListEmpty = products.length === 0;
+    return (
+      <div
+        className={clsx(styles['product-list'], {
+          [styles['product-list--empty']]: isListEmpty,
+        })}
+        data-products-quantity={products.length}
+      >
+        <h3 className={styles['product-list__title']}>Продукты</h3>
+        <ul className={styles['product-list__list']}>
+          {products.map((product) => (
+            <ProductListItem
+              key={product.id}
+              product={product}
+              onSelect={onProductSelect}
+            />
+          ))}
+        </ul>
+      </div>
+    );
+  }
+);
+
+ProductList.displayName = 'ProductList';
