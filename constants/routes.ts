@@ -4,4 +4,5 @@ export const ROUTES = {
   FOOD_DIARY: '/food-diary',
   HEALTHY_RECIPES: '/healthy-recipes',
   KNOWLEDGE_BASE: '/knowledge-base',
+  QUESTIONNAIRE: 'questionnaire',
 } as const;

@@ -22,4 +22,8 @@ export const mainNavConfig: MainNavLink[] = [
     text: 'База знаний',
     url: ROUTES.KNOWLEDGE_BASE,
   },
+  {
+    text: 'Анкета',
+    url: ROUTES.QUESTIONNAIRE,
+  },
 ];
