@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { memo, useCallback } from 'react';
 
 import { ProductType } from '@/types/common';
@@ -23,6 +23,7 @@ export const ChosenProductList = memo(
     onRemove,
     onPortionChange,
   }: ChosenProductListProps) => {
+    const router = useRouter();
     const isListEmpty = products.length === 0;
     const createInputFocusHandler = useCallback(
       (product: ProductType) => () => {
@@ -37,6 +38,18 @@ export const ChosenProductList = memo(
       },
       [onRemove]
     );
+
+    const submitHandler = () => {
+      const productSet = products.map((product) => ({
+        id: product.id,
+        name: product.name,
+        quantity: product.portionSize,
+      }));
+
+      localStorage.setItem('productSet', JSON.stringify(productSet));
+
+      router.push('/healthy-recipes');
+    };
 
     return (
       <div
@@ -58,9 +71,9 @@ export const ChosenProductList = memo(
           ))}
           {!isListEmpty && (
             <li className={styles['chosen-product-list__redirect']}>
-              <Link href="/healthy-recipes">
-                <Button mod={['wide', 'secondary']}>Перейти к рецептам</Button>
-              </Link>
+              <Button mod={['wide', 'secondary']} onClick={submitHandler}>
+                Перейти к рецептам
+              </Button>
             </li>
           )}
         </ul>

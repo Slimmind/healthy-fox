@@ -1,3 +1,5 @@
-export default function HealthyRecipes() {
-  return <h1>Здоровые рецепты</h1>;
+import HealthyRecipes from '@/app/healthy-recipes/components/healthy-recipes';
+
+export default function HealthyRecipesPage() {
+  return <HealthyRecipes />;
 }

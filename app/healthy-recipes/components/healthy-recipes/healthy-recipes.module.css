@@ -1,0 +1,66 @@
+.healthy-recipes {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  padding: 10px;
+}
+
+.healthy-recipes__current,
+.healthy-recipes__list {
+  width: 50%;
+  max-height: 100%;
+  border: 10px solid var(--color-gray-light);
+  border-radius: var(--radius-main);
+  background-color: var(--color-gray-light);
+  overflow-y: auto;
+}
+
+.healthy-recipes__current-image {
+  width: 100%;
+  margin-bottom: 10px;
+  aspect-ratio: 1/1;
+  background-size: contain;
+  border-radius: var(--radius-main);
+}
+
+.healthy-recipes__current-image img {
+  display: none;
+}
+
+.healthy-recipes__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.healthy-recipes__list-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--color-white);
+  border-radius: var(--radius-main);
+  max-height: 260px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.healthy-recipes__list-item-image {
+  border-radius: var(--radius-main);
+}
+
+.healthy-recipes__list-item-text {
+  position: relative;
+  max-height: 100%;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.healthy-recipes__list-item-text::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, transparent, var(--color-white));
+}
