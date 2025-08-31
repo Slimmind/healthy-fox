@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { memo, useCallback } from 'react';
 
+import { ROUTES } from '@/constants/routes';
 import { ProductType } from '@/types/common';
 
 import Button from '../button';
@@ -58,7 +59,7 @@ export const ChosenProductList = memo(
           ))}
           {!isListEmpty && (
             <li className={styles['chosen-product-list__redirect']}>
-              <Link href="/healthy-recipes">
+              <Link href={ROUTES.HEALTHY_RECIPES}>
                 <Button mod={['wide', 'secondary']}>Перейти к рецептам</Button>
               </Link>
             </li>

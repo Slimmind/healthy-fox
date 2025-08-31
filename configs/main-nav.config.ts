@@ -1,24 +1,25 @@
-import { type MainNavLink } from '@/types/common';
+import { ROUTES } from '@/constants/routes';
+import { type MainNavLink } from '@/types/main-nav';
 
 export const mainNavConfig: MainNavLink[] = [
   {
     text: 'Тарелочька',
-    url: '/harvard-plate',
+    url: ROUTES.HARVARD_PLATE,
   },
   {
     text: 'Водичька',
-    url: '/water-tracker',
+    url: ROUTES.WATER_TRACKER,
   },
   {
     text: 'Дневник питания',
-    url: '/food-diary',
+    url: ROUTES.FOOD_DIARY,
   },
   {
     text: 'Здоровые рецепты',
-    url: '/healthy-recipes',
+    url: ROUTES.HEALTHY_RECIPES,
   },
   {
     text: 'База знаний',
-    url: '/knowledge-base',
+    url: ROUTES.KNOWLEDGE_BASE,
   },
 ];

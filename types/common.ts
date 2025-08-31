@@ -59,11 +59,6 @@ export type NutrientType = {
   value: number;
 };
 
-export type MainNavLink = {
-  text: string;
-  url: string;
-};
-
 export type NutritionField =
   | 'calories'
   | 'proteins'
