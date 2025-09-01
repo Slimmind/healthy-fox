@@ -1,15 +1,14 @@
 import clsx from 'clsx';
 import { memo } from 'react';
 
-import { ProductType } from '@/types/common';
-
+import { Product } from '../../harvard-plate.types';
 import ProductListItem from '../product-list-item';
 
 import styles from './product-list.module.css';
 
 type ProductListProps = {
-  products: ProductType[];
-  onProductSelect: (chosenProduct: ProductType) => void;
+  products: Product[];
+  onProductSelect: (chosenProduct: Product) => void;
 };
 
 export const ProductList = memo(

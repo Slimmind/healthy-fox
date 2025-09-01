@@ -1,11 +1,16 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 
-import { initialMealSummary } from '@/constants/harvard-plate';
-import { type NutritionField, type ProductType } from '@/types/common';
-import { MeasurementDataType } from '@/types/measurement';
+import { initialMealSummary } from '../harvard-plate.constants';
+import {
+  type Product,
+  type NutritionField,
+  type MeasurementDataType,
+} from '../harvard-plate.types';
 
 export const useMealSummary = (
-  chosenProducts: ProductType[]
+  chosenProducts: Product[]
 ): MeasurementDataType => {
   const [summary, setSummary] =
     useState<MeasurementDataType>(initialMealSummary);

@@ -1,6 +1,6 @@
-import { ProductType } from '@/types/common';
+import { Product } from '@/types/common';
 
-export function recalculateProductCharacteristics(product: ProductType) {
+export function recalculateProductCharacteristics(product: Product) {
   if (product.portionSize === product.unitValue) {
     return product;
   }

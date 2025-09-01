@@ -16,12 +16,14 @@
     "precommit": "npm run lint:fix && npm run format && npm run stylelint:fix"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.1",
     "next": "15.3.3",
     "openai": "^5.11.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

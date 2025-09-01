@@ -1,16 +1,16 @@
 import { memo, useCallback } from 'react';
 
+import Button from '@/components/button';
+import Input from '@/components/input';
 import DeleteIcon from '@/icons/delete-icon';
-import { ProductType } from '@/types/common';
 
-import Button from '../button';
-import Input from '../input';
+import { Product } from '../../harvard-plate.types';
 
 import styles from './chosen-product-list-item.module.css';
 
 type ChosenProductListItemProps = {
-  product: ProductType;
-  onInputFocus: (product: ProductType) => void;
+  product: Product;
+  onInputFocus: (product: Product) => void;
   onRemove: (productId: string) => void;
   onPortionChange: (value: string) => void;
 };
@@ -26,17 +26,16 @@ export const ChosenProductListItem = memo(
       onRemove(product.id);
     }, [onRemove, product.id]);
 
-    const handleInputFocus = useCallback(() => {
+    const handleInputFocus = () => {
       onInputFocus(product);
-    }, [onInputFocus, product]);
+    };
 
-    const handleChange = useCallback(
-      (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const value = e.target.value;
-        onPortionChange(value);
-      },
-      [onPortionChange]
-    );
+    const handleChange = (
+      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+      const value = e.target.value;
+      onPortionChange(value);
+    };
 
     return (
       <li className={styles['chosen-product-list__item']} id={product.id}>

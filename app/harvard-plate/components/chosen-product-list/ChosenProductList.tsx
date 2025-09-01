@@ -2,17 +2,17 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { memo, useCallback } from 'react';
 
+import Button from '@/components/button';
 import { ROUTES } from '@/constants/routes';
-import { ProductType } from '@/types/common';
 
-import Button from '../button';
+import { Product } from '../../harvard-plate.types';
 import ChosenProductListItem from '../chosen-product-list-item';
 
 import styles from './chosen-product-list.module.css';
 
 type ChosenProductListProps = {
-  products: ProductType[];
-  onInputFocus: (product: ProductType) => void;
+  products: Product[];
+  onInputFocus: (product: Product) => void;
   onRemove: (productId: string) => void;
   onPortionChange: (value: string) => void;
 };
@@ -26,18 +26,15 @@ export const ChosenProductList = memo(
   }: ChosenProductListProps) => {
     const isListEmpty = products.length === 0;
     const createInputFocusHandler = useCallback(
-      (product: ProductType) => () => {
+      (product: Product) => () => {
         onInputFocus(product);
       },
       [onInputFocus]
     );
 
-    const createRemoveHandler = useCallback(
-      (productId: string) => () => {
-        onRemove(productId);
-      },
-      [onRemove]
-    );
+    const removeHandler = (productId: string) => () => {
+      onRemove(productId);
+    };
 
     return (
       <div
@@ -53,7 +50,7 @@ export const ChosenProductList = memo(
               key={product.id}
               product={product}
               onInputFocus={createInputFocusHandler(product)}
-              onRemove={createRemoveHandler(product.id)}
+              onRemove={removeHandler(product.id)}
               onPortionChange={onPortionChange}
             />
           ))}

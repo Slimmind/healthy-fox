@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
+import { Provider } from 'react-redux';
 
-import HarvardPlate from '@/components/harvard-plate';
+import { store } from '@/store/store';
+
+import HarvardPlate from './components/harvard-plate';
 
 export const metadata: Metadata = {
   title: 'Foxy Plate',
@@ -8,5 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function HarvardPlatePage() {
-  return <HarvardPlate />;
+  return (
+    <Provider store={store}>
+      <HarvardPlate />;
+    </Provider>
+  );
 }

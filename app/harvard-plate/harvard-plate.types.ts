@@ -5,12 +5,6 @@ export enum NutritionalCharacteristic {
   Fats = 'fats',
 }
 
-export enum MealTime {
-  Breakfast = 'breakfast',
-  Lunch = 'lunch',
-  Dinner = 'dinner',
-}
-
 export type Product = {
   id: string;
   name: string;
@@ -57,4 +51,18 @@ export type Product = {
 export type NutrientType = {
   name: string;
   value: number;
+};
+
+export type NutritionField =
+  | 'calories'
+  | 'proteins'
+  | 'fats'
+  | 'carbohydrates'
+  | 'portionSize';
+
+export type MeasurementDataType = {
+  calories: number;
+  proteins: number;
+  fats: number;
+  carbohydrates: number;
 };

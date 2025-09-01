@@ -4,7 +4,8 @@ import CarbohydratesIcon from '@/icons/carbohydrates-icon';
 import FatsIcon from '@/icons/fats-icon';
 import ProteinsIcon from '@/icons/proteins-icon';
 import VegetablesIcon from '@/icons/vegetables-icon';
-import { NutritionalCharacteristic } from '@/types/common';
+
+import { NutritionalCharacteristic } from '../../harvard-plate.types';
 
 import styles from './plate-roundel.module.css';
 
