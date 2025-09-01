@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 
+import Button from '@/components/button';
+import Input from '@/components/input';
 import DeleteIcon from '@/icons/delete-icon';
-import { ProductType } from '@/types/common';
 
-import Button from '../button';
-import Input from '../input';
+import { ProductType } from '../../harvard-plate.types';
 
 import styles from './chosen-product-list-item.module.css';
 

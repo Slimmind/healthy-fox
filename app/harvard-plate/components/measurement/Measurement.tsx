@@ -1,6 +1,6 @@
 'use client';
 
-import { MeasurementDataType } from '@/types/measurement';
+import { MeasurementDataType } from '../../harvard-plate.types';
 
 import styles from './measurement.module.css';
 
