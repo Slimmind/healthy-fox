@@ -1,4 +1,4 @@
-import { MealTime } from '@/types/common';
+import { MealTime } from './harvard-plate.types';
 
 export const MealTimesTitle = {
   [MealTime.Breakfast]: 'Завтрак',
@@ -6,6 +6,9 @@ export const MealTimesTitle = {
   [MealTime.Dinner]: 'Ужин',
 };
 
-export const MealCategories = {
-  FOOD: 'food',
+export const initialMealSummary = {
+  calories: 0,
+  proteins: 0,
+  fats: 0,
+  carbohydrates: 0,
 };

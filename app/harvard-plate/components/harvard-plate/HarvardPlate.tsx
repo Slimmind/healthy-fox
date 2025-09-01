@@ -2,23 +2,23 @@
 
 import { useCallback, useMemo, useState } from 'react';
 
-import { MealTimesTitle } from '@/constants/common';
-import { useMealSummary } from '@/hooks/use-meal-summary';
+import Sidebar from '@/components/sidebar';
+import Switcher from '@/components/switcher';
+import { SwitcherConfigItemType } from '@/types/switcher';
+import { filterProductsByMealTime } from '@/utils/filter-products';
+
+import { MealTimesTitle } from '../../harvard-plate.constants';
 import {
   MealTime,
   NutritionalCharacteristic,
   ProductType,
-} from '@/types/common';
-import { SwitcherConfigItemType } from '@/types/switcher';
-import { filterProductsByMealTime } from '@/utils/filter-products';
-
+} from '../../harvard-plate.types';
+import { useMealSummary } from '../../hooks/use-meal-summary';
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
 import PlateRoundel from '../plate-roundel';
 import ProductCharacteristics from '../product-characteristics';
 import ProductList from '../product-list';
-import Sidebar from '../sidebar';
-import Switcher from '../switcher';
 
 import styles from './harvard-plate.module.css';
 

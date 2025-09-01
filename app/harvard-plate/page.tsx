@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import HarvardPlate from '@/components/harvard-plate';
+import HarvardPlate from './components/harvard-plate';
 
 export const metadata: Metadata = {
   title: 'Foxy Plate',

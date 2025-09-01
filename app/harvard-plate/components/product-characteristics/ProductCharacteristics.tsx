@@ -1,7 +1,8 @@
 import { memo } from 'react';
 
-import { NutrientType, ProductType } from '@/types/common';
 import { recalculateProductCharacteristics } from '@/utils/recalculate-product-characteristics';
+
+import { NutrientType, ProductType } from '../../harvard-plate.types';
 
 import styles from './product-characteristics.module.css';
 
@@ -11,7 +12,8 @@ type ProductCharacteristicsType = {
 
 export const ProductCharacteristics = memo(
   ({ product }: ProductCharacteristicsType) => {
-    const updatedProduct = product && recalculateProductCharacteristics(product);
+    const updatedProduct =
+      product && recalculateProductCharacteristics(product);
     return (
       <div className={styles['product-characteristics']}>
         <h3 className={styles['product-characteristics__title']}>

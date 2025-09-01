@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { memo, useCallback } from 'react';
 
+import Button from '@/components/button';
 import { ROUTES } from '@/constants/routes';
-import { ProductType } from '@/types/common';
 
-import Button from '../button';
+import { ProductType } from '../../harvard-plate.types';
 import ChosenProductListItem from '../chosen-product-list-item';
 
 import styles from './chosen-product-list.module.css';

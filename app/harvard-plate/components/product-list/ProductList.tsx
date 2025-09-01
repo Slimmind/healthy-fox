@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { memo } from 'react';
 
-import { ProductType } from '@/types/common';
-
+import { ProductType } from '../../harvard-plate.types';
 import ProductListItem from '../product-list-item';
 
 import styles from './product-list.module.css';

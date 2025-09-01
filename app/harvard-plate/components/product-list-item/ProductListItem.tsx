@@ -1,6 +1,9 @@
 import { memo, useCallback } from 'react';
 
-import { type NutritionalCharacteristic, ProductType } from '@/types/common';
+import {
+  type NutritionalCharacteristic,
+  ProductType,
+} from '../../harvard-plate.types';
 
 import styles from './product-list-item.module.css';
 
