@@ -1,18 +1,19 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import Sidebar from '@/components/sidebar';
 import Switcher from '@/components/switcher';
+import {
+  useProductsList,
+  useCurrentProduct,
+  useChosenProducts,
+  useProductActions,
+} from '@/store/products';
 import { SwitcherConfigItemType } from '@/types/switcher';
-import { filterProductsByMealTime } from '@/utils/filter-products';
 
 import { MealTimesTitle } from '../../harvard-plate.constants';
-import {
-  MealTime,
-  NutritionalCharacteristic,
-  ProductType,
-} from '../../harvard-plate.types';
+import { MealTime, ProductType } from '../../harvard-plate.types';
 import { useMealSummary } from '../../hooks/use-meal-summary';
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
@@ -30,11 +31,16 @@ const MOCK_USER_DATA = {
 };
 
 export const HarvardPlate = () => {
-  const [productsList, setProductsList] = useState<ProductType[]>([]);
-  const [currentProduct, setCurrentProduct] = useState<ProductType | null>(
-    null
-  );
-  const [chosenProducts, setChosenProducts] = useState<ProductType[]>([]);
+  const productsList = useProductsList();
+  const currentProduct = useCurrentProduct();
+  const chosenProducts = useChosenProducts();
+  const {
+    addChosenProduct,
+    removeChosenProduct,
+    updateProductPortion,
+    filterProductsByMealTime,
+    filterProductsByNutritionalValue,
+  } = useProductActions();
 
   const mealSummary = useMealSummary(chosenProducts);
 
@@ -43,74 +49,30 @@ export const HarvardPlate = () => {
       Object.values(MealTime).map((mealTime) => ({
         value: mealTime,
         text: MealTimesTitle[mealTime],
-        switchHandler: () =>
-          filterProductsByMealTime(mealTime, setProductsList),
+        switchHandler: () => filterProductsByMealTime(mealTime),
       })),
-    []
+    [filterProductsByMealTime]
   );
-
-  const removeProduct = useCallback((productId: string): void => {
-    setChosenProducts((prevChosen) => {
-      const productToRemove = prevChosen.find(({ id }) => id === productId);
-      if (!productToRemove) return prevChosen;
-
-      setProductsList((prevList) => {
-        const isAlreadyExists = prevList.some(
-          (product) => product.id === productId
-        );
-        if (!isAlreadyExists) {
-          return [productToRemove, ...prevList];
-        }
-        return prevList;
-      });
-
-      return prevChosen.filter((product) => product.id !== productId);
-    });
-  }, []);
 
   const handleProductSelect = useCallback(
     (selectedProduct: ProductType): void => {
-      setProductsList((prevList) =>
-        prevList.filter((product) => product.id !== selectedProduct.id)
-      );
-
-      setCurrentProduct(selectedProduct);
-      setChosenProducts((prevChosen) => [...prevChosen, selectedProduct]);
+      addChosenProduct(selectedProduct);
     },
-    []
-  );
-
-  const filterProductsByNutritionalValue = useCallback(
-    (value: NutritionalCharacteristic) => {
-      setProductsList((prevList) =>
-        prevList.filter((product) => product.mainCharacteristic.includes(value))
-      );
-    },
-    []
+    [addChosenProduct]
   );
 
   const changePortionSize = useCallback(
     (value: string): void => {
       if (!currentProduct) return;
 
-      const updatedProduct = {
-        ...currentProduct,
-        portionSize: Number(value) || 0,
-      };
-
-      setCurrentProduct(updatedProduct);
-
-      setChosenProducts((prevChosen) =>
-        prevChosen.map((product) =>
-          product.id === updatedProduct.id ? updatedProduct : product
-        )
-      );
+      updateProductPortion(currentProduct.id, Number(value) || 0);
     },
-    [currentProduct]
+    [currentProduct, updateProductPortion]
   );
 
-  const handleInputFocus = useCallback((product: ProductType) => {
-    setCurrentProduct(product);
+  const handleInputFocus = useCallback((_product: ProductType) => {
+    // Note: currentProduct is automatically set when adding a product
+    // This function might not be needed anymore, but keeping for compatibility
   }, []);
 
   return (
@@ -124,7 +86,7 @@ export const HarvardPlate = () => {
         <ChosenProductList
           products={chosenProducts}
           onInputFocus={handleInputFocus}
-          onRemove={removeProduct}
+          onRemove={removeChosenProduct}
           onPortionChange={changePortionSize}
         />
       </Sidebar>
