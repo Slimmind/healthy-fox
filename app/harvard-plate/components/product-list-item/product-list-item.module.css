@@ -4,16 +4,26 @@
   align-items: center;
   min-height: 60px;
   padding: 10px 10px 10px 32px;
-  background-color: var(--color-gray-light);
-  border-radius: var(--radius-main);
+  background-color: var(--color-white-transparent);
+  border-radius: var(--radius-small);
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s;
 }
 
+.product-list__item:first-of-type {
+  border-radius: var(--radius-main) var(--radius-main) var(--radius-small)
+    var(--radius-small);
+}
+
+.product-list__item:last-of-type {
+  border-radius: var(--radius-small) var(--radius-small) var(--radius-main)
+    var(--radius-main);
+}
+
 .product-list__item:hover,
 .product-list__item:focus-visible {
-  background-color: var(--color-gray);
+  background-color: var(--color-white);
 }
 
 .product-list__markers {

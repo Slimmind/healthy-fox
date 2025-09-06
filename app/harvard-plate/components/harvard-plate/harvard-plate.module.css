@@ -1,10 +1,12 @@
 .plate {
   display: flex;
   flex-direction: column;
+  min-height: 100dvh;
   gap: 10px;
-  max-height: calc(100dvh - 100px);
-  padding: 10px;
+  padding: 60px 10px;
   overflow: auto;
+  background: url('/images/bg-1.png') no-repeat 50% 50% / cover;
+  background-attachment: fixed;
 }
 
 .plate__sidebar {
@@ -19,7 +21,7 @@
   grid-area: sidebar-right;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   .plate {
     display: grid;
     grid:
@@ -27,6 +29,6 @@
       'sidebar-left roundel       sidebar-right' 2fr
       'sidebar-left measurement   sidebar-right' 1fr
       / 1fr 2fr 1fr;
-    height: calc(100dvh - 100px);
+    height: 100dvh;
   }
 }

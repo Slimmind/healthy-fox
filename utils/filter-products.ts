@@ -1,12 +1,12 @@
 import meals from '@/meals.json';
-import { type MealTime, type ProductType } from '@/types/common';
+import { type MealTime, type Product } from '@/types/common';
 
 export const filterProductsByMealTime = (
   mealTime: MealTime,
-  updateProducts: (products: ProductType[]) => void
+  updateProducts: (products: Product[]) => void
 ): void => {
   const filteredMeals = meals.filter((meal) =>
     meal.mealTimes.includes(mealTime)
-  ) as ProductType[];
+  ) as Product[];
   updateProducts(filteredMeals);
 };

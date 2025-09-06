@@ -14,31 +14,25 @@
 }
 
 .main-nav__content {
+  position: relative;
   height: 100%;
   padding: 20px 10px 10px 50px;
-  background-color: var(--color-main-transparent);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--color-main-transparent);
-  border-radius: 50% 0 0 50%;
-  filter: blur(50px);
-  transition:
-    filter 0.75s ease-in-out,
-    border-radius 0.75s ease-in-out;
+  background-color: var(--color-main);
+  backdrop-filter: var(--blur);
 }
 
 .main-nav--active .main-nav__content {
   border-radius: 0;
-  filter: blur(0);
 }
 
 .main-nav__list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .main-nav__list-item {
-  color: var(--color-main);
+  color: var(--color-white);
 }
 
 .main-nav__menu-button {

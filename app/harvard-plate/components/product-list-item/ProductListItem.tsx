@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 
 import {
   type NutritionalCharacteristic,
-  ProductType,
+  Product,
 } from '../../harvard-plate.types';
 
 import styles from './product-list-item.module.css';
@@ -12,8 +12,8 @@ export const ProductListItem = memo(
     product,
     onSelect,
   }: {
-    product: ProductType;
-    onSelect: (product: ProductType) => void;
+    product: Product;
+    onSelect: (product: Product) => void;
   }) => {
     const handleClick = useCallback(() => {
       onSelect(product);

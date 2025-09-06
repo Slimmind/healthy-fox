@@ -3,6 +3,7 @@
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
+  backdrop-filter: var(--blur);
 }
 
 .switcher__item {

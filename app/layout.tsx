@@ -5,6 +5,7 @@ import Header from '@/components/header';
 import Main from '@/components/main';
 
 import { geistSans, geistMono } from './fonts';
+
 import './globals.css';
 
 export const metadata: Metadata = {
