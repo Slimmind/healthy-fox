@@ -1,8 +1,9 @@
 .nav-link {
   position: relative;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 40px;
   color: inherit;
+  font-size: 20px;
   transition: box-shadow 0.5s;
 }
 
@@ -22,26 +23,32 @@
   z-index: -1;
 }
 
-.nav-link--active::before {
-  background: linear-gradient(45deg, var(--color-white), var(--color-main));
-  animation: shadow 10s ease-in-out infinite;
-}
-
-.nav-link--active::after {
-  background: linear-gradient(45deg, var(--color-main), var(--color-white));
-  animation: shadow 6s ease-in-out infinite;
-}
-
-@keyframes shadow {
-  0% {
-    opacity: 0.3;
+@media (min-width: 1024px) {
+  .nav-link {
+    font-size: 16px;
   }
 
-  66% {
-    opacity: 1;
+  .nav-link--active::before {
+    background: linear-gradient(45deg, var(--color-white), var(--color-main));
+    animation: shadow 10s ease-in-out infinite;
   }
 
-  99% {
-    opacity: 0.3;
+  .nav-link--active::after {
+    background: linear-gradient(45deg, var(--color-main), var(--color-white));
+    animation: shadow 6s ease-in-out infinite;
+  }
+
+  @keyframes shadow {
+    0% {
+      opacity: 0.3;
+    }
+
+    66% {
+      opacity: 1;
+    }
+
+    99% {
+      opacity: 0.3;
+    }
   }
 }

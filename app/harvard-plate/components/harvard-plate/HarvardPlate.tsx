@@ -13,7 +13,7 @@ import {
 import { SwitcherConfigItemType } from '@/types/switcher';
 
 import { MealTimesTitle } from '../../harvard-plate.constants';
-import { MealTime, ProductType } from '../../harvard-plate.types';
+import { MealTime, Product } from '../../harvard-plate.types';
 import { useMealSummary } from '../../hooks/use-meal-summary';
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
@@ -55,7 +55,7 @@ export const HarvardPlate = () => {
   );
 
   const handleProductSelect = useCallback(
-    (selectedProduct: ProductType): void => {
+    (selectedProduct: Product): void => {
       addChosenProduct(selectedProduct);
     },
     [addChosenProduct]
@@ -70,7 +70,7 @@ export const HarvardPlate = () => {
     [currentProduct, updateProductPortion]
   );
 
-  const handleInputFocus = useCallback((_product: ProductType) => {
+  const handleInputFocus = useCallback((_product: Product) => {
     // Note: currentProduct is automatically set when adding a product
     // This function might not be needed anymore, but keeping for compatibility
   }, []);

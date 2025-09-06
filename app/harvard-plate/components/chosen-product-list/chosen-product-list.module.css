@@ -2,7 +2,8 @@
   position: relative;
   height: 40%;
   max-height: 40%;
-  background-color: var(--color-gray-light);
+  background-color: var(--color-white-transparent);
+  border: 1px solid var(--color-white-transparent);
   border-radius: var(--radius-main);
 }
 

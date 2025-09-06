@@ -1,12 +1,11 @@
-// utils/userUtils.ts
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
+
+import { db } from './firebaseConfig';
 
 // Function to get user count from Firestore
 export const checkAuthLimit = async (): Promise<number> => {
-  const db = getFirestore();
-  const usersCollection = collection(db, 'users');
-
   try {
+    const usersCollection = collection(db, 'users');
     const usersSnapshot = await getDocs(usersCollection);
     return usersSnapshot.size; // Returns the number of users
   } catch (error) {

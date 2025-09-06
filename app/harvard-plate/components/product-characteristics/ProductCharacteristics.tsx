@@ -2,12 +2,12 @@ import { memo } from 'react';
 
 import { recalculateProductCharacteristics } from '@/utils/recalculate-product-characteristics';
 
-import { NutrientType, ProductType } from '../../harvard-plate.types';
+import { NutrientType, Product } from '../../harvard-plate.types';
 
 import styles from './product-characteristics.module.css';
 
 type ProductCharacteristicsType = {
-  product: ProductType | null;
+  product: Product | null;
 };
 
 export const ProductCharacteristics = memo(

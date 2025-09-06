@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 
 import { initialMealSummary } from '../harvard-plate.constants';
 import {
-  type ProductType,
+  type Product,
   type NutritionField,
   type MeasurementDataType,
 } from '../harvard-plate.types';
 
 export const useMealSummary = (
-  chosenProducts: ProductType[]
+  chosenProducts: Product[]
 ): MeasurementDataType => {
   const [summary, setSummary] =
     useState<MeasurementDataType>(initialMealSummary);

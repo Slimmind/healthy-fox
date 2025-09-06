@@ -136,7 +136,7 @@
 }
 
 .button--secondary {
-  background-color: var(--color-main-transparent);
+  background-color: var(--color-main-transparent-weak);
   border-color: var(--color-main-transparent);
   color: var(--color-main);
   transition:

@@ -3,6 +3,7 @@
   display: flex;
   gap: 10px;
   width: 100%;
+  max-width: 60vh;
   aspect-ratio: 1/1;
   margin-inline: auto;
   border: 10px solid var(--color-white);
@@ -10,6 +11,16 @@
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
+}
+
+.plate__roundel::before {
+  content: '';
+  position: absolute;
+  background-color: var(--color-white);
+  top: 0;
+  left: calc(50% - 5px);
+  width: 10px;
+  height: 100%;
 }
 
 .plate__roundel-section-wrap {
@@ -25,6 +36,7 @@
   justify-content: center;
   transition: opacity 0.3s;
   cursor: pointer;
+  backdrop-filter: var(--blur);
 }
 
 .plate__roundel-section svg {
@@ -41,17 +53,17 @@
 
 .plate__roundel-section--vegetables {
   height: 100%;
-  background-color: var(--color-green);
+  background-color: var(--color-green-transparent);
 }
 
 .plate__roundel-section--proteins {
   height: calc(50% - 5px);
-  background-color: var(--color-blue);
+  background-color: var(--color-blue-transparent);
 }
 
 .plate__roundel-section--carbohydrates {
   height: calc(50% - 5px);
-  background-color: var(--color-orange);
+  background-color: var(--color-orange-transparent);
 }
 
 .plate__roundel-section--fats {
@@ -63,6 +75,16 @@
   background-color: var(--color-violet);
   border: 10px solid var(--color-white);
   border-radius: 50%;
+}
+
+.plate__roundel-section--fats::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 5px);
+  left: 100%;
+  width: 30vh;
+  height: 10px;
+  background-color: var(--color-white);
 }
 
 .plate__roundel-section-content {

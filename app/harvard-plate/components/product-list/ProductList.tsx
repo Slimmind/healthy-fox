@@ -1,19 +1,20 @@
 import clsx from 'clsx';
 import { memo } from 'react';
 
-import { ProductType } from '../../harvard-plate.types';
+import { Product } from '../../harvard-plate.types';
 import ProductListItem from '../product-list-item';
 
 import styles from './product-list.module.css';
 
 type ProductListProps = {
-  products: ProductType[];
-  onProductSelect: (chosenProduct: ProductType) => void;
+  products: Product[];
+  onProductSelect: (chosenProduct: Product) => void;
 };
 
 export const ProductList = memo(
   ({ products, onProductSelect }: ProductListProps) => {
     const isListEmpty = products.length === 0;
+
     return (
       <div
         className={clsx(styles['product-list'], {
