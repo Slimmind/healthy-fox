@@ -9,6 +9,7 @@
   --color-yellow-value: 218, 165, 32;
   --color-orange-value: 248, 152, 95;
   --color-violet-value: 125, 143, 201;
+  --color-white-value: 255, 255, 255;
   --color-main: rgb(var(--color-main-value));
   --color-blue: rgb(var(--color-blue-value));
   --color-green: rgb(var(--color-green-value));
@@ -16,19 +17,32 @@
   --color-yellow: rgb(var(--color-yellow-value));
   --color-orange: rgb(var(--color-orange-value));
   --color-violet: rgb(var(--color-violet-value));
+  --color-white: rgb(var(--color-white-value));
   --color-main-transparent: rgba(var(--color-main-value), var(--transparency));
   --color-blue-transparent: rgba(var(--color-blue-value), var(--transparency));
   --color-red-transparent: rgba(var(--color-red-value), var(--transparency));
+  --color-white-transparent: rgba(
+    var(--color-white-value),
+    var(--transparency)
+  );
+  --color-green-transparent: rgba(
+    var(--color-green-value),
+    var(--transparency)
+  );
+  --color-violet-transparent: rgba(
+    var(--color-violet-value),
+    var(--transparency)
+  );
   --color-main-transparent-weak: rgba(
     var(--color-main-value),
     var(--transparency-weak)
   );
   --color-blue-light: #cccce1;
-  --color-white: #fff;
   --color-gray: #cdcdcd;
   --color-gray-light: #efefef;
   --color-link-active: #e76f25;
   --radius-main: 10px;
+  --radius-small: 4px;
   --border-width-main: 2px;
   --background: #fff;
   --foreground: #171717;

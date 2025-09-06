@@ -5,6 +5,7 @@ import { ProductType } from '../../harvard-plate.types';
 import ProductListItem from '../product-list-item';
 
 import styles from './product-list.module.css';
+import Skeleton from './Skeleton';
 
 type ProductListProps = {
   products: ProductType[];
@@ -14,6 +15,10 @@ type ProductListProps = {
 export const ProductList = memo(
   ({ products, onProductSelect }: ProductListProps) => {
     const isListEmpty = products.length === 0;
+    if (products.length === 0) {
+      return <Skeleton />;
+    }
+
     return (
       <div
         className={clsx(styles['product-list'], {

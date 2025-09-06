@@ -7,7 +7,8 @@
 }
 
 .measurement__user-graph {
-  border-radius: var(--radius-main);
+  border-radius: var(--radius-small) var(--radius-small) var(--radius-main)
+    var(--radius-main);
   overflow: hidden;
 }
 
@@ -94,13 +95,14 @@
 .measurement__graph-titles {
   width: 100%;
   display: flex;
-  gap: 10px;
+  gap: 4px;
 }
 
 .measurement__graph-titles-item {
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   border: 2px solid;
-  border-radius: var(--radius-main);
+  border-radius: var(--radius-main) var(--radius-main) var(--radius-small)
+    var(--radius-small);
   color: var(--color-white);
   font-weight: 700;
 }
