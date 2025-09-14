@@ -2,14 +2,14 @@
   position: relative;
   display: flex;
   gap: 10px;
-  height: 100%;
-  max-height: 60vh;
+  width: 100%;
   aspect-ratio: 1/1;
   margin-inline: auto;
   border: 10px solid var(--color-white);
   box-shadow: 0 0 0 4px var(--color-main-transparent);
   border-radius: 50%;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .plate__roundel-section-wrap {
@@ -83,4 +83,11 @@
 
 .plate__roundel-section--fats .plate__roundel-section-content {
   padding: 0;
+}
+
+@media (min-width: 960px) {
+  .plate__roundel {
+    width: auto;
+    max-height: 60vh;
+  }
 }

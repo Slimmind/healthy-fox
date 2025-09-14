@@ -1,13 +1,10 @@
 .plate {
-  display: grid;
-  grid:
-    'sidebar-left switcher      sidebar-right' auto
-    'sidebar-left roundel       sidebar-right' 2fr
-    'sidebar-left measurement   sidebar-right' 1fr
-    / 1fr 2fr 1fr;
-  height: calc(100dvh - 100px);
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  max-height: calc(100dvh - 100px);
   padding: 10px;
+  overflow: auto;
 }
 
 .plate__sidebar {
@@ -20,4 +17,16 @@
 
 .plate__sidebar--right {
   grid-area: sidebar-right;
+}
+
+@media (min-width: 960px) {
+  .plate {
+    display: grid;
+    grid:
+      'sidebar-left switcher      sidebar-right' auto
+      'sidebar-left roundel       sidebar-right' 2fr
+      'sidebar-left measurement   sidebar-right' 1fr
+      / 1fr 2fr 1fr;
+    height: calc(100dvh - 100px);
+  }
 }
