@@ -77,6 +77,8 @@ export const HarvardPlate = () => {
 
   return (
     <div className={styles.plate}>
+      <Switcher config={mealTimeSwitcherConfig} />
+      <PlateRoundel onFilter={filterProductsByNutritionalValue} />
       <Sidebar mod="left">
         <ProductList
           products={productsList}
@@ -90,11 +92,7 @@ export const HarvardPlate = () => {
           onPortionChange={changePortionSize}
         />
       </Sidebar>
-
-      <Switcher config={mealTimeSwitcherConfig} />
-      <PlateRoundel onFilter={filterProductsByNutritionalValue} />
       <Measurement userValues={MOCK_USER_DATA} chosenValues={mealSummary} />
-
       <Sidebar mod="right">
         <ProductCharacteristics product={currentProduct} />
       </Sidebar>
