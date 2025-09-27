@@ -6,7 +6,7 @@ import {
   type NutritionalCharacteristic,
   type Product,
 } from '@/app/harvard-plate/harvard-plate.types';
-import meals from '@/meals.json';
+import products from '@/products.json';
 
 interface ProductStoreState {
   productsList: Product[];
@@ -82,10 +82,10 @@ export const useProductStore = create<ProductStore>()(
       })),
 
     filterProductsByMealTime: (mealTime) => {
-      const filteredMeals = meals.filter((meal) =>
-        meal.mealTimes.includes(mealTime)
+      const filteredProducts = products.filter((product) =>
+        product.mealTimes.includes(mealTime)
       ) as Product[];
-      set({ productsList: filteredMeals });
+      set({ productsList: filteredProducts });
     },
 
     filterProductsByNutritionalValue: (value) =>

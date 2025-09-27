@@ -14,7 +14,7 @@ import { SwitcherConfigItemType } from '@/types/switcher';
 
 import { MealTimesTitle } from '../../harvard-plate.constants';
 import { MealTime, Product } from '../../harvard-plate.types';
-import { useMealSummary } from '../../hooks/use-meal-summary';
+import { useProductSummary } from '../../hooks/use-product-summary';
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
 import PlateRoundel from '../plate-roundel';
@@ -42,7 +42,7 @@ export const HarvardPlate = () => {
     filterProductsByNutritionalValue,
   } = useProductActions();
 
-  const mealSummary = useMealSummary(chosenProducts);
+  const productSummary = useProductSummary(chosenProducts);
 
   const mealTimeSwitcherConfig: SwitcherConfigItemType[] = useMemo(
     () =>
@@ -92,9 +92,12 @@ export const HarvardPlate = () => {
           onPortionChange={changePortionSize}
         />
       </Sidebar>
-      <Measurement userValues={MOCK_USER_DATA} chosenValues={mealSummary} />
+      <Measurement userValues={MOCK_USER_DATA} chosenValues={productSummary} />
       <Sidebar mod="right">
-        <ProductCharacteristics product={currentProduct} />
+        <h3 className={styles['product-characteristics__title']}>
+          Характеристики
+        </h3>
+        <ProductCharacteristics products={chosenProducts} />
       </Sidebar>
     </div>
   );
