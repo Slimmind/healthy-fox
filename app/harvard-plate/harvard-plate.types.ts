@@ -11,7 +11,7 @@ export enum MealTime {
   Dinner = 'dinner',
 }
 
-export type ProductType = {
+export type Product = {
   id: string;
   name: string;
   mealTimes: string[];

@@ -4,13 +4,13 @@ import Button from '@/components/button';
 import Input from '@/components/input';
 import DeleteIcon from '@/icons/delete-icon';
 
-import { ProductType } from '../../harvard-plate.types';
+import { Product } from '../../harvard-plate.types';
 
 import styles from './chosen-product-list-item.module.css';
 
 type ChosenProductListItemProps = {
-  product: ProductType;
-  onInputFocus: (product: ProductType) => void;
+  product: Product;
+  onInputFocus: (product: Product) => void;
   onRemove: (productId: string) => void;
   onPortionChange: (value: string) => void;
 };

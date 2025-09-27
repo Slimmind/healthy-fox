@@ -4,21 +4,21 @@ import { subscribeWithSelector } from 'zustand/middleware';
 import {
   type MealTime,
   type NutritionalCharacteristic,
-  type ProductType,
+  type Product,
 } from '@/app/harvard-plate/harvard-plate.types';
-import meals from '@/meals.json';
+import products from '@/products.json';
 
 interface ProductStoreState {
-  productsList: ProductType[];
-  currentProduct: ProductType | null;
-  chosenProducts: ProductType[];
+  productsList: Product[];
+  currentProduct: Product | null;
+  chosenProducts: Product[];
 }
 
 interface ProductStoreActions {
-  setProductsList: (products: ProductType[]) => void;
-  setCurrentProduct: (product: ProductType | null) => void;
-  setChosenProducts: (products: ProductType[]) => void;
-  addChosenProduct: (product: ProductType) => void;
+  setProductsList: (products: Product[]) => void;
+  setCurrentProduct: (product: Product | null) => void;
+  setChosenProducts: (products: Product[]) => void;
+  addChosenProduct: (product: Product) => void;
   removeChosenProduct: (productId: string) => void;
   updateProductPortion: (productId: string, portionSize: number) => void;
   filterProductsByMealTime: (mealTime: MealTime) => void;
@@ -82,10 +82,10 @@ export const useProductStore = create<ProductStore>()(
       })),
 
     filterProductsByMealTime: (mealTime) => {
-      const filteredMeals = meals.filter((meal) =>
-        meal.mealTimes.includes(mealTime)
-      ) as ProductType[];
-      set({ productsList: filteredMeals });
+      const filteredProducts = products.filter((product) =>
+        product.mealTimes.includes(mealTime)
+      ) as Product[];
+      set({ productsList: filteredProducts });
     },
 
     filterProductsByNutritionalValue: (value) =>

@@ -6,7 +6,7 @@ export const MealTimesTitle = {
   [MealTime.Dinner]: 'Ужин',
 };
 
-export const initialMealSummary = {
+export const initialProductSummary = {
   calories: 0,
   proteins: 0,
   fats: 0,

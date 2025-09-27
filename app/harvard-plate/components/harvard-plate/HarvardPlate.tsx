@@ -13,8 +13,8 @@ import {
 import { SwitcherConfigItemType } from '@/types/switcher';
 
 import { MealTimesTitle } from '../../harvard-plate.constants';
-import { MealTime, ProductType } from '../../harvard-plate.types';
-import { useMealSummary } from '../../hooks/use-meal-summary';
+import { MealTime, Product } from '../../harvard-plate.types';
+import { useProductSummary } from '../../hooks/use-meal-summary';
 import ChosenProductList from '../chosen-product-list';
 import Measurement from '../measurement';
 import PlateRoundel from '../plate-roundel';
@@ -42,7 +42,7 @@ export const HarvardPlate = () => {
     filterProductsByNutritionalValue,
   } = useProductActions();
 
-  const mealSummary = useMealSummary(chosenProducts);
+  const productSummary = useProductSummary(chosenProducts);
 
   const mealTimeSwitcherConfig: SwitcherConfigItemType[] = useMemo(
     () =>
@@ -55,7 +55,7 @@ export const HarvardPlate = () => {
   );
 
   const handleProductSelect = useCallback(
-    (selectedProduct: ProductType): void => {
+    (selectedProduct: Product): void => {
       addChosenProduct(selectedProduct);
     },
     [addChosenProduct]
@@ -70,7 +70,7 @@ export const HarvardPlate = () => {
     [currentProduct, updateProductPortion]
   );
 
-  const handleInputFocus = useCallback((_product: ProductType) => {
+  const handleInputFocus = useCallback((_product: Product) => {
     // Note: currentProduct is automatically set when adding a product
     // This function might not be needed anymore, but keeping for compatibility
   }, []);
@@ -92,7 +92,7 @@ export const HarvardPlate = () => {
           onPortionChange={changePortionSize}
         />
       </Sidebar>
-      <Measurement userValues={MOCK_USER_DATA} chosenValues={mealSummary} />
+      <Measurement userValues={MOCK_USER_DATA} chosenValues={productSummary} />
       <Sidebar mod="right">
         <ProductCharacteristics product={currentProduct} />
       </Sidebar>
