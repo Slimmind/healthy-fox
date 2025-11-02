@@ -3,6 +3,10 @@ import { type MainNavLink } from '@/types/main-nav';
 
 export const mainNavConfig: MainNavLink[] = [
   {
+    text: 'Формочка',
+    url: ROUTES.FORM_CREATOR,
+  },
+  {
     text: 'Тарелочька',
     url: ROUTES.HARVARD_PLATE,
   },

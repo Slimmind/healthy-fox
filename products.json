@@ -48,7 +48,13 @@
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["свежий", "горьковатый", "зелёный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "DASH"
+    ],
     "cookingMethods": ["на пару", "запекание", "варка", "сырой"],
     "seasonality": ["весна", "осень"]
   },
@@ -2618,7 +2624,12 @@
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["нежный", "слегка горький", "нейтральный"],
     "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "DASH"],
-    "cookingMethods": ["на пару", "запекание", "пюре", "рис из цветной капусты"],
+    "cookingMethods": [
+      "на пару",
+      "запекание",
+      "пюре",
+      "рис из цветной капусты"
+    ],
     "seasonality": ["осень", "зима"]
   },
   {
@@ -3724,7 +3735,13 @@
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["сладкий", "кислый", "сочный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "DASH"
+    ],
     "cookingMethods": ["сырой", "в соусы", "запекание", "сушка"],
     "seasonality": ["лето"]
   },
@@ -3825,7 +3842,13 @@
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["сладкий", "сочный", "хрустящий"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "DASH"
+    ],
     "cookingMethods": ["сырой", "жарка", "запекание", "фарширование"],
     "seasonality": ["лето", "осень"]
   },
@@ -3926,7 +3949,13 @@
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["сладкий", "сочный", "хрустящий"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "DASH"
+    ],
     "cookingMethods": ["сырой", "жарка", "запекание"],
     "seasonality": ["лето", "осень"]
   },
@@ -4027,7 +4056,13 @@
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["горьковатый", "хрустящий", "свежий"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "DASH"
+    ],
     "cookingMethods": ["сырой", "жарка", "фарширование"],
     "seasonality": ["лето", "осень"]
   },
@@ -4127,7 +4162,11 @@
     ],
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
-    "tasteProfile": ["острый", "пикантный", "сладковатый (после термообработки)"],
+    "tasteProfile": [
+      "острый",
+      "пикантный",
+      "сладковатый (после термообработки)"
+    ],
     "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "DASH"],
     "cookingMethods": ["жарка", "тушение", "сырой", "карамелизация"],
     "seasonality": ["все сезоны"]
@@ -4229,7 +4268,13 @@
     "countryOfOrigin": "Китай",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["острый", "пикантный", "ароматный"],
-    "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "DASH", "пaleo"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "Mediterranean",
+      "DASH",
+      "пaleo"
+    ],
     "cookingMethods": ["сырой", "жарка", "тушение", "маринование"],
     "seasonality": ["все сезоны"]
   },
@@ -4732,7 +4777,13 @@
     "countryOfOrigin": "Мексика",
     "certifications": ["Organic", "Fair Trade"],
     "tasteProfile": ["цитрусовый", "пряный", "свежий"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "пaleo"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "пaleo"
+    ],
     "cookingMethods": ["сырая", "в сальсу", "в супы", "в маринады"],
     "seasonality": ["весна", "лето"]
   },
@@ -4833,7 +4884,13 @@
     "countryOfOrigin": "Италия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["пряный", "сладковатый", "ароматный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "пaleo"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "пaleo"
+    ],
     "cookingMethods": ["сырой", "в песто", "в салаты", "в соусы"],
     "seasonality": ["лето"]
   },
@@ -4933,7 +4990,12 @@
     "countryOfOrigin": "Марокко",
     "certifications": ["Organic", "Fair Trade"],
     "tasteProfile": ["освежающий", "прохладный", "ароматный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean"
+    ],
     "cookingMethods": ["сырая", "в чай", "в десерты", "в соусы"],
     "seasonality": ["весна", "лето"]
   },
@@ -5383,7 +5445,12 @@
     "countryOfOrigin": "Кипр",
     "certifications": ["PDO", "Organic"],
     "tasteProfile": ["солёный", "резиновый", "менее жирный"],
-    "suitableDiets": ["низкокалорийная", "вегетарианская", "Mediterranean", "пaleo"],
+    "suitableDiets": [
+      "низкокалорийная",
+      "вегетарианская",
+      "Mediterranean",
+      "пaleo"
+    ],
     "cookingMethods": ["гриль", "жарка", "в салаты"],
     "seasonality": ["все сезоны"]
   },
@@ -5733,7 +5800,13 @@
     "countryOfOrigin": "Испания",
     "certifications": ["Organic", "EU"],
     "tasteProfile": ["кислый", "свежий", "ароматный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "DASH"
+    ],
     "cookingMethods": ["сырой", "в воду", "в соусы", "в маринады"],
     "seasonality": ["зима"]
   },
@@ -6641,7 +6714,12 @@
     "countryOfOrigin": "Эквадор",
     "certifications": ["Organic", "Fair Trade"],
     "tasteProfile": ["сладкий", "мягкий", "кремовый"],
-    "suitableDiets": ["веганская", "вегетарианская", "спортивное питание", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "спортивное питание",
+      "DASH"
+    ],
     "cookingMethods": ["сырой", "в овсянку", "в выпечку", "в смузи"],
     "seasonality": ["все сезоны"]
   },
@@ -8054,7 +8132,12 @@
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["сладкий", "сочный", "освежающий"],
-    "suitableDiets": ["веганская", "вегетарианская", "спортивное питание", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "спортивное питание",
+      "DASH"
+    ],
     "cookingMethods": ["сырой", "в смузи", "в салаты"],
     "seasonality": ["лето"]
   },
@@ -8255,7 +8338,13 @@
     "countryOfOrigin": "Мексика",
     "certifications": ["Organic", "Fair Trade"],
     "tasteProfile": ["кислый", "свежий", "ароматный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "Mediterranean", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "Mediterranean",
+      "DASH"
+    ],
     "cookingMethods": ["сырой", "в воду", "в соусы", "в маринады"],
     "seasonality": ["зима"]
   },
@@ -8507,7 +8596,13 @@
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["кисло-сладкий", "ароматный", "нежный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "DASH", "Mediterranean"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "DASH",
+      "Mediterranean"
+    ],
     "cookingMethods": ["сырая", "в смузи", "в десерты", "в салаты"],
     "seasonality": ["лето"]
   },
@@ -8608,7 +8703,13 @@
     "countryOfOrigin": "США",
     "certifications": ["Organic", "Non-GMO"],
     "tasteProfile": ["кисло-сладкий", "сочный", "ароматный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "DASH", "Mediterranean"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "DASH",
+      "Mediterranean"
+    ],
     "cookingMethods": ["сырая", "в смузи", "в десерты"],
     "seasonality": ["лето"]
   },
@@ -8681,7 +8782,11 @@
     "unit": "на 100 грамм",
     "unitValue": 100,
     "type": "ягода",
-    "mainCharacteristic": ["proanthocyanidins", "urinaryHealth", "antioxidants"],
+    "mainCharacteristic": [
+      "proanthocyanidins",
+      "urinaryHealth",
+      "antioxidants"
+    ],
     "allergens": [],
     "storage": "В холодильнике до 2 месяцев.",
     "category": "food",
@@ -8810,7 +8915,13 @@
     "countryOfOrigin": "США",
     "certifications": ["Organic", "Non-GMO"],
     "tasteProfile": ["сладкий", "кислый", "сочный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "DASH", "Mediterranean"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "DASH",
+      "Mediterranean"
+    ],
     "cookingMethods": ["сырая", "в овсянку", "в смузи", "в выпечку"],
     "seasonality": ["лето"]
   },
@@ -9416,7 +9527,13 @@
     "countryOfOrigin": "Турция",
     "certifications": ["Organic", "Fair Trade"],
     "tasteProfile": ["сладкий", "сочный", "нежный"],
-    "suitableDiets": ["веганская", "вегетарианская", "сыроедение", "DASH", "Mediterranean"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "сыроедение",
+      "DASH",
+      "Mediterranean"
+    ],
     "cookingMethods": ["сырая", "в смузи", "в десерты"],
     "seasonality": ["лето"]
   },
@@ -10321,7 +10438,12 @@
     "countryOfOrigin": "Германия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["кислый", "солёный", "хрустящий"],
-    "suitableDiets": ["веганская", "вегетарианская", "пaleo", "ферментационная"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "пaleo",
+      "ферментационная"
+    ],
     "cookingMethods": ["сырая", "в супы", "в салаты", "как гарнир"],
     "seasonality": ["все сезоны"]
   },
@@ -10575,7 +10697,12 @@
     "countryOfOrigin": "Перу",
     "certifications": ["Organic", "Fair Trade"],
     "tasteProfile": ["пряный", "землистый", "тёплый"],
-    "suitableDiets": ["веганская", "безглютеновая", "пaleo", "антивоспалительная"],
+    "suitableDiets": [
+      "веганская",
+      "безглютеновая",
+      "пaleo",
+      "антивоспалительная"
+    ],
     "cookingMethods": ["готовая", "в салаты", "как гарнир"],
     "seasonality": ["все сезоны"]
   },
@@ -10878,7 +11005,12 @@
     "countryOfOrigin": "Канада",
     "certifications": ["Organic", "Non-GMO", "Fair Trade"],
     "tasteProfile": ["ореховый", "землистый", "свежий"],
-    "suitableDiets": ["веганская", "сыроедение", "антиоксидантная", "безглютеновая"],
+    "suitableDiets": [
+      "веганская",
+      "сыроедение",
+      "антиоксидантная",
+      "безглютеновая"
+    ],
     "cookingMethods": ["сырая", "в салаты", "в смузи", "в каши"],
     "seasonality": ["все сезоны"]
   },
@@ -11380,7 +11512,12 @@
     "countryOfOrigin": "США",
     "certifications": ["Organic", "Non-GMO", "Fair Trade"],
     "tasteProfile": ["кисло-сладкий", "ореховый", "хрустящий"],
-    "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "антиоксидантная"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "Mediterranean",
+      "антиоксидантная"
+    ],
     "cookingMethods": ["сырая", "с йогуртом", "в каши", "в салаты"],
     "seasonality": ["осень", "зима"]
   },
@@ -11430,7 +11567,12 @@
     "countryOfOrigin": "Индонезия",
     "certifications": ["Organic", "Non-GMO"],
     "tasteProfile": ["пряный", "землистый", "острый"],
-    "suitableDiets": ["веганская", "вегетарианская", "антивоспалительная", "пaleo"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "антивоспалительная",
+      "пaleo"
+    ],
     "cookingMethods": ["жарка", "запекание", "в карри", "в салаты"],
     "seasonality": ["все сезоны"]
   },
@@ -11530,7 +11672,12 @@
     "countryOfOrigin": "Россия",
     "certifications": ["Organic", "ГОСТ"],
     "tasteProfile": ["сладковатый", "пряный", "овощной"],
-    "suitableDiets": ["веганская", "вегетарианская", "антивоспалительная", "DASH"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "антивоспалительная",
+      "DASH"
+    ],
     "cookingMethods": ["готовая", "подогрев", "в салаты"],
     "seasonality": ["все сезоны"]
   },
@@ -11630,7 +11777,12 @@
     "countryOfOrigin": "США",
     "certifications": ["Organic", "Non-GMO", "Fair Trade"],
     "tasteProfile": ["ягодный", "ореховый", "сладкий"],
-    "suitableDiets": ["веганская", "вегетарианская", "антиоксидантная", "безглютеновая"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "антиоксидантная",
+      "безглютеновая"
+    ],
     "cookingMethods": ["сырая", "с йогуртом", "в смузи", "в каши"],
     "seasonality": ["все сезоны"]
   },
@@ -11730,7 +11882,12 @@
     "countryOfOrigin": "Греция",
     "certifications": ["Vegan Society", "Organic", "EU"],
     "tasteProfile": ["цитрусовый", "травяной", "сливочный"],
-    "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "освежающая"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "Mediterranean",
+      "освежающая"
+    ],
     "cookingMethods": ["сырой", "на тосты", "в салаты", "в закуски"],
     "seasonality": ["весна", "лето"]
   },
@@ -11881,7 +12038,12 @@
     "countryOfOrigin": "Турция",
     "certifications": ["Organic", "Fair Trade", "Non-GMO"],
     "tasteProfile": ["медовый", "ореховый", "мягкий"],
-    "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "антиоксидантная"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "Mediterranean",
+      "антиоксидантная"
+    ],
     "cookingMethods": ["сырая", "с йогуртом", "в каши", "в десерты"],
     "seasonality": ["осень", "зима"]
   },
@@ -11931,7 +12093,12 @@
     "countryOfOrigin": "Индонезия",
     "certifications": ["Organic", "Non-GMO"],
     "tasteProfile": ["цитрусовый", "травяной", "грибной"],
-    "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "освежающая"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "Mediterranean",
+      "освежающая"
+    ],
     "cookingMethods": ["жарка", "запекание", "в салаты", "в бургеры"],
     "seasonality": ["весна", "лето"]
   },
@@ -12031,7 +12198,12 @@
     "countryOfOrigin": "Таиланд",
     "certifications": ["Organic", "Fair Trade"],
     "tasteProfile": ["тропический", "сладкий", "сочный"],
-    "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "безглютеновая"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "Mediterranean",
+      "безглютеновая"
+    ],
     "cookingMethods": ["готовая", "с йогуртом", "в смузи", "в десерты"],
     "seasonality": ["все сезоны"]
   },
@@ -12081,7 +12253,12 @@
     "countryOfOrigin": "Япония",
     "certifications": ["Organic", "JAS", "Non-GMO"],
     "tasteProfile": ["луковый", "солёный", "умами"],
-    "suitableDiets": ["веганская", "вегетарианская", "японская", "ферментационная"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "японская",
+      "ферментационная"
+    ],
     "cookingMethods": ["в супы", "в заправки", "в маринады"],
     "seasonality": ["весна", "лето"]
   },
@@ -12131,7 +12308,12 @@
     "countryOfOrigin": "Италия",
     "certifications": ["Organic", "EU", "Non-GMO"],
     "tasteProfile": ["персиковый", "ореховый", "сладкий"],
-    "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "безглютеновая"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "Mediterranean",
+      "безглютеновая"
+    ],
     "cookingMethods": ["сырая", "с йогуртом", "в каши", "в десерты"],
     "seasonality": ["лето", "осень"]
   },
@@ -12231,7 +12413,12 @@
     "countryOfOrigin": "Греция",
     "certifications": ["Vegan Society", "Organic", "EU"],
     "tasteProfile": ["цитрусовый", "травяной", "сливочный"],
-    "suitableDiets": ["веганская", "вегетарианская", "Mediterranean", "освежающая"],
+    "suitableDiets": [
+      "веганская",
+      "вегетарианская",
+      "Mediterranean",
+      "освежающая"
+    ],
     "cookingMethods": ["сырой", "на тосты", "в салаты", "в закуски"],
     "seasonality": ["весна", "лето"]
   },

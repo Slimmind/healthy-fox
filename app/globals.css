@@ -45,7 +45,7 @@
     var(--transparency-weak)
   );
   --color-blue-light: #cccce1;
-  --color-gray-light: #efefef;
+  --color-gray-light: #f9fafb;
   --color-link-active: #e76f25;
   --radius-main: 10px;
   --radius-small: 4px;
@@ -96,6 +96,10 @@ button {
   font-weight: bold;
   cursor: pointer;
   outline: none;
+}
+
+button svg {
+  /* pointer-events: none; */
 }
 
 img {

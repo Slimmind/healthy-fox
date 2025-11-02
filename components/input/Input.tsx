@@ -13,6 +13,7 @@ const WarningIcon = lazy(() => import('../../icons/warning-icon'));
 type InputProps = {
   label?: string;
   id?: string;
+  name: string;
   type?: string;
   description?: string;
   errorMessage?: string;
@@ -31,6 +32,7 @@ export const Input = forwardRef<
   (
     {
       id,
+      name,
       label,
       type,
       children,
@@ -60,6 +62,7 @@ export const Input = forwardRef<
             ref: ref as React.Ref<HTMLInputElement & HTMLTextAreaElement>,
             type: type || 'text',
             id,
+            name,
             ...props,
           })}
           {isChecking && label && <label htmlFor={id}>{label}</label>}

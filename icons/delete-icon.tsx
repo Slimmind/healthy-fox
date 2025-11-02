@@ -1,7 +1,7 @@
 const DeleteIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
-    <path fill="#c80078" d="M48 0a48 48 0 1 0 48 48A48.051 48.051 0 0 0 48 0Zm0 84a36 36 0 1 1 36-36 36.04 36.04 0 0 1-36 36Z" />
-    <path fill="#c80078" d="M64.242 31.758a5.998 5.998 0 0 0-8.484 0L48 39.516l-7.758-7.758a6 6 0 0 0-8.484 8.484L39.516 48l-7.758 7.758a6 6 0 1 0 8.484 8.484L48 56.484l7.758 7.758a6 6 0 0 0 8.484-8.484L56.484 48l7.758-7.758a5.998 5.998 0 0 0 0-8.484Z" />
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="3 6 5 6 21 6"></polyline>
+    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
   </svg>
 );
 
